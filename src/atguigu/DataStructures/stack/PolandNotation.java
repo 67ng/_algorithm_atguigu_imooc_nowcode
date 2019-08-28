@@ -5,7 +5,19 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * @Description: 逆波兰表达式计算器
+ * @Description: 逆波兰表达式计算器（支持小括号）
+ * <p>
+ * 前缀表达式的计算机求值：
+ * 从右至左扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算
+ * （栈顶元素和次顶元素），并将结果入栈；重复上述过程直到表达式最左端，最后运算得出的值即为表达式的结果
+ * 举例说明： (3+4)×5-6 对应的前缀表达式就是 - × + 3 4 5 6
+ * <p>
+ * 中缀表达式就是常见的运算表达式
+ * <p>
+ * 后缀表达式又称逆波兰表达式,与前缀表达式相似，只是运算符位于操作数之后，
+ * 举例说明： (3+4)×5-6 对应的后缀表达式就是 3 4 + 5 × 6 –
+ * 从左至右扫描表达式，遇到数字时，将数字压入堆栈，遇到运算符时，弹出栈顶的两个数，用运算符对它们做相应的计算
+ * （次顶元素和栈顶元素），并将结果入栈；重复上述过程直到表达式最右端，最后运算得出的值即为表达式的结果
  * @Author: 67ng
  * @Date: 2019/8/17 21:22
  */
@@ -31,34 +43,33 @@ public class PolandNotation {
 
 
 
-		/*
-
 		//先定义给逆波兰表达式
 		//(30+4)×5-6  => 30 4 + 5 × 6 - => 164
 		// 4 * 5 - 8 + 60 + 8 / 2 => 4 5 * 8 - 60 + 8 2 / +
 		//测试
 		//说明为了方便，逆波兰表达式 的数字和符号使用空格隔开
-		//String suffixExpression = "30 4 + 5 * 6 -";
-		String suffixExpression = "4 5 * 8 - 60 + 8 2 / +"; // 76
+//		String suffixExpression = "30 4 + 5 * 6 -";
+//		String suffixExpression = "4 5 * 8 - 60 + 8 2 / +"; // 76
 		//思路
 		//1. 先将 "3 4 + 5 × 6 - " => 放到ArrayList中
-		//2. 将 ArrayList 传递给一个方法，遍历 ArrayList 配合栈 完成计算
+		//2. 将 ArrayList 传递给一个方法，遍历 ArrayList 配合栈完成计算
+/*
 
 		List<String> list = getListString(suffixExpression);
 		System.out.println("rpnList=" + list);
 		int res = calculate(list);
 		System.out.println("计算的结果是=" + res);
+*/
 
-		*/
+
     }
-
 
     //即 ArrayList [1,+,(,(,2,+,3,),*,4,),-,5]  =》 ArrayList [1,2,3,+,4,*,+,5,–]
     //方法：将得到的中缀表达式对应的List => 后缀表达式对应的List
     public static List<String> parseSuffixExpreesionList(List<String> ls) {
         //定义两个栈
         Stack<String> s1 = new Stack<String>(); // 符号栈
-        //说明：因为s2 这个栈，在整个转换过程中，没有pop操作，而且后面我们还需要逆序输出
+        //说明：因为s2这个栈，在整个转换过程中，没有pop操作，而且后面我们还需要逆序输出
         //因此比较麻烦，这里我们就不用 Stack<String> 直接使用 List<String> s2
         //Stack<String> s2 = new Stack<String>(); // 储存中间结果的栈s2
         List<String> s2 = new ArrayList<String>(); // 储存中间结果的Lists2
@@ -75,7 +86,7 @@ public class PolandNotation {
                 while (!s1.peek().equals("(")) {
                     s2.add(s1.pop());
                 }
-                s1.pop();//!!! 将 ( 弹出 s1栈， 消除小括号
+                s1.pop();//!!! 将 ( 弹出s1栈，消除小括号
             } else {
                 //当item的优先级小于等于s1栈顶运算符, 将s1栈顶的运算符弹出并加入到s2中，再次转到(4.1)与s1中新的栈顶运算符相比较
                 //问题：我们缺少一个比较优先级高低的方法
@@ -96,12 +107,12 @@ public class PolandNotation {
 
     }
 
-    //方法：将 中缀表达式转成对应的List
+    //方法：将中缀表达式转成对应的List(如果是多位数用String就非常麻烦)
     //  s="1+((2+3)×4)-5";
     public static List<String> toInfixExpressionList(String s) {
         //定义一个List,存放中缀表达式 对应的内容
         List<String> ls = new ArrayList<String>();
-        int i = 0; //这时是一个指针，用于遍历 中缀表达式字符串
+        int i = 0; //这时是一个指针，用于遍历中缀表达式字符串
         String str; // 对多位数的拼接
         char c; // 每遍历到一个字符，就放入到c
         do {
@@ -121,7 +132,7 @@ public class PolandNotation {
         return ls;//返回
     }
 
-    //将一个逆波兰表达式， 依次将数据和运算符 放入到 ArrayList中
+    //将一个逆波兰表达式，依次将数据和运算符放入到ArrayList中
     public static List<String> getListString(String suffixExpression) {
         //将 suffixExpression 分割
         String[] split = suffixExpression.split(" ");
@@ -176,10 +187,9 @@ public class PolandNotation {
         //最后留在stack中的数据是运算结果
         return Integer.parseInt(stack.pop());
     }
-
 }
 
-//编写一个类 Operation 可以返回一个运算符 对应的优先级
+//编写一个类 Operation 可以返回一个运算符对应的优先级
 class Operation {
     private static int ADD = 1;
     private static int SUB = 1;
@@ -208,6 +218,4 @@ class Operation {
         }
         return result;
     }
-
-
 }
