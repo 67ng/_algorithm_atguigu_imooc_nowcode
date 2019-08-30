@@ -2,8 +2,9 @@ package atguigu.DataStructures.sort;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 /**
- * @Description:
+ * @Description: 快排是对冒泡排序的改进
  * @Author: 67ng
  * @Date: 2019/8/27 22:54
  */
@@ -30,7 +31,7 @@ public class QuickSort {
 
         Date data2 = new Date();
         String date2Str = simpleDateFormat.format(data2);
-        System.out.println("排序前的时间是=" + date2Str);
+        System.out.println("排序后的时间是=" + date2Str);
         //System.out.println("arr=" + Arrays.toString(arr));
     }
 
@@ -51,7 +52,7 @@ public class QuickSort {
             while (arr[r] > pivot) {
                 r -= 1;
             }
-            //如果l >= r说明pivot 的左右两的值，已经按照左边全部是
+            //如果l >= r说明pivot的左右两边的值，已经按照左边全部是
             //小于等于pivot值，右边全部是大于等于pivot值
             if (l >= r) {
                 break;
@@ -62,7 +63,7 @@ public class QuickSort {
             arr[l] = arr[r];
             arr[r] = temp;
 
-            //如果交换完后，发现这个arr[l] == pivot值 相等 r--， 前移
+            //如果交换完后，发现这个arr[l] == pivot值相等 r--， 前移
             if (arr[l] == pivot) {
                 r -= 1;
             }
