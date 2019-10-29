@@ -49,20 +49,22 @@ public class HashTabDemo {
     }
 }
 
-//创建HashTab 管理多条链表
+//创建HashTab管理多条链表
 class HashTab {
     private EmpLinkedList[] empLinkedListArray;
     private int size; //表示有多少条链表
+
     //构造器
     public HashTab(int size) {
         this.size = size;
         //初始化empLinkedListArray
         empLinkedListArray = new EmpLinkedList[size];
-        //？留一个坑, 这时不要分别初始化每个链表
+        //？留一个坑, 这时不要忘记分别初始化每个链表
         for (int i = 0; i < size; i++) {
             empLinkedListArray[i] = new EmpLinkedList();
         }
     }
+
     //添加雇员
     public void add(Emp emp) {
         //根据员工的id ,得到该员工应当添加到哪条链表
@@ -77,13 +79,14 @@ class HashTab {
             empLinkedListArray[i].list(i);
         }
     }
+
     //根据输入的id,查找雇员
     public void findEmpById(int id) {
         //使用散列函数确定到哪条链表查找
         int empLinkedListNO = hashFun(id);
         Emp emp = empLinkedListArray[empLinkedListNO].findEmpById(id);
         if (emp != null) {//找到
-            System.out.printf("在第%d条链表中找到 雇员 id = %d\n", (empLinkedListNO + 1), id);
+            System.out.printf("在第%d条链表中找到雇员id = %d\n", (empLinkedListNO + 1), id);
         } else {
             System.out.println("在哈希表中，没有找到该雇员~");
         }
@@ -112,6 +115,7 @@ class Emp {
 class EmpLinkedList {
     //头指针，执行第一个Emp,因此我们这个链表的head是直接指向第一个Emp
     private Emp head; //默认null
+
     //添加雇员到链表
     //说明
     //1. 假定，当添加雇员时，id是自增长，即id的分配总是从小到大
@@ -130,7 +134,7 @@ class EmpLinkedList {
             }
             curEmp = curEmp.next; //后移
         }
-        //退出时直接将emp 加入链表
+        //退出时直接将emp加入链表
         curEmp.next = emp;
     }
 
@@ -168,7 +172,7 @@ class EmpLinkedList {
             }
             //退出
             if (curEmp.next == null) {//说明遍历当前链表没有找到该雇员
-                curEmp = null;
+                curEmp = null;//将指向的最后一个元素的指针置空好统一返回
                 break;
             }
             curEmp = curEmp.next;//以后
