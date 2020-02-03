@@ -1,5 +1,8 @@
 package imooc.Graph_Algorithms.Graph_DFS_Applications.ConnectedComponentsCount.src;
 
+/**
+ * 计算联通分量个数
+ * */
 public class CC {
 
     private Graph G;
@@ -12,7 +15,7 @@ public class CC {
         visited = new boolean[G.V()];
         for(int v = 0; v < G.V(); v ++)
             if(!visited[v]){
-                dfs(v);
+                dfs(v);//每次深度优先遍历都会遍历完该联通分量的所有顶点
                 cccount ++;
             }
     }
@@ -31,7 +34,7 @@ public class CC {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\mzh\\IdeaProject\\_justforfun\\src\\imooc\\Graph_Algorithms\\Graph_DFS_Applications\\ConnectedComponentsCount\\g.txt");
         CC cc = new CC(g);
         System.out.println(cc.count());
     }

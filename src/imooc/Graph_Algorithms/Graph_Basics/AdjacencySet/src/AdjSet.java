@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.TreeSet;
 import java.util.Scanner;
-
+/**
+ *
+ * 时间复杂度O（Elog(V)）,空间复杂度O（E+V）
+ * */
 public class AdjSet {
 
     private int V;
     private int E;
-    private TreeSet<Integer>[] adj;
+    private TreeSet<Integer>[] adj;//用红黑树代替链表，相比hashSet，保持有序，更节省空间
 
     public AdjSet(String pathStr){
 
@@ -63,7 +66,7 @@ public class AdjSet {
         return adj[v].contains(w);
     }
 
-    public Iterable<Integer> adj(int v){
+    public Iterable<Integer> adj(int v){//屏蔽实现细节
     // public TreeSet<Integer> adj(int v){
         validateVertex(v);
         return adj[v];
@@ -82,7 +85,8 @@ public class AdjSet {
         for(int v = 0; v < V; v ++){
             sb.append(String.format("%d : ", v));
             for(int w : adj[v])
-                sb.append(String.format("%d ", w));
+                sb.append(String.format("%d，", w));
+            sb.deleteCharAt(sb.length()-1);
             sb.append('\n');
         }
         return sb.toString();
@@ -90,7 +94,7 @@ public class AdjSet {
 
     public static void main(String[] args){
 
-        AdjSet adjSet = new AdjSet("g.txt");
+        AdjSet adjSet = new AdjSet("C:\\Users\\mzh\\IdeaProject\\_justforfun\\src\\imooc\\Graph_Algorithms\\Graph_Basics\\AdjacencySet\\g.txt");
         System.out.print(adjSet);
     }
 }

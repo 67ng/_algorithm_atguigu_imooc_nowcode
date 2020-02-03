@@ -40,8 +40,8 @@ public class CC {
         return visited[v] == visited[w];
     }
 
+    //显示所有联通分量及包含的顶点
     public ArrayList<Integer>[] components(){
-
         ArrayList<Integer>[] res = new ArrayList[cccount];
         for(int i = 0; i < cccount; i ++)
             res[i] = new ArrayList<Integer>();
@@ -53,7 +53,7 @@ public class CC {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\mzh\\IdeaProject\\_justforfun\\src\\imooc\\Graph_Algorithms\\Graph_DFS_Applications\\MoreaboutConnectedComponents\\g.txt");
         CC cc = new CC(g);
         System.out.println(cc.count());
 
@@ -64,7 +64,7 @@ public class CC {
         for(int ccid = 0; ccid < comp.length; ccid ++){
             System.out.print(ccid + " : ");
             for(int w: comp[ccid])
-                System.out.print(w + " ");
+                System.out.print(w + "，");
             System.out.println();
         }
     }

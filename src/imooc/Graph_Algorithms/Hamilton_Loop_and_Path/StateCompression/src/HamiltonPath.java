@@ -1,22 +1,24 @@
-package imooc.Graph_Algorithms.Hamilton
+package imooc.Graph_Algorithms.Hamilton_Loop_and_Path.StateCompression.src;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class HamiltonLoop {
+public class HamiltonPath {
 
     private Graph G;
     private int[] pre;
     private int end;
+    private int s;
 
-    public HamiltonLoop(Graph G){
+    public HamiltonPath(Graph G, int s){
 
         this.G = G;
+        this.s = s;
         pre = new int[G.V()];
         end = -1;
 
         int visited = 0;
-        dfs(visited, 0, 0, G.V());
+        dfs(visited, s, s, G.V());
     }
 
     private boolean dfs(int visited, int v, int parent, int left){
@@ -24,7 +26,7 @@ public class HamiltonLoop {
         visited += (1 << v);
         pre[v] = parent;
         left --;
-        if(left == 0 && G.hasEdge(v, 0)){
+        if(left == 0){
             end = v;
             return true;
         }
@@ -44,11 +46,11 @@ public class HamiltonLoop {
         if(end == -1) return res;
 
         int cur = end;
-        while(cur != 0){
+        while(cur != s){
             res.add(cur);
             cur = pre[cur];
         }
-        res.add(0);
+        res.add(s);
 
         Collections.reverse(res);
         return res;
@@ -57,11 +59,10 @@ public class HamiltonLoop {
     public static void main(String[] args){
 
         Graph g = new Graph("g.txt");
-        HamiltonLoop hl = new HamiltonLoop(g);
-        System.out.println(hl.result());
+        HamiltonPath hp = new HamiltonPath(g, 0);
+        System.out.println(hp.result());
 
-        Graph g2 = new Graph("g2.txt");
-        HamiltonLoop hl2 = new HamiltonLoop(g2);
-        System.out.println(hl2.result());
+        HamiltonPath hp2 = new HamiltonPath(g, 1);
+        System.out.println(hp2.result());
     }
 }

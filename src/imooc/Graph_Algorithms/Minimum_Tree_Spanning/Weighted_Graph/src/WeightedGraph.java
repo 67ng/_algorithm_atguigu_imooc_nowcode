@@ -1,19 +1,20 @@
-package imooc.Graph_Algorithms.Hamilton
+package imooc.Graph_Algorithms.Minimum_Tree_Spanning.Weighted_Graph.src;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.TreeSet;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.Scanner;
 
 
-/// 暂时只支持无向无权图
-public class Graph {
+/// 暂时只支持无向带权图
+public class WeightedGraph implements Cloneable{
 
     private int V;
     private int E;
-    private TreeSet<Integer>[] adj;
+    private TreeMap<Integer, Integer>[] adj;
 
-    public Graph(String filename){
+    public WeightedGraph(String filename){
 
         File file = new File(filename);
 
@@ -21,9 +22,9 @@ public class Graph {
 
             V = scanner.nextInt();
             if(V < 0) throw new IllegalArgumentException("V must be non-negative");
-            adj = new TreeSet[V];
+            adj = new TreeMap[V];
             for(int i = 0; i < V; i ++)
-                adj[i] = new TreeSet<Integer>();
+                adj[i] = new TreeMap<Integer, Integer>();
 
             E = scanner.nextInt();
             if(E < 0) throw new IllegalArgumentException("E must be non-negative");
@@ -33,12 +34,13 @@ public class Graph {
                 validateVertex(a);
                 int b = scanner.nextInt();
                 validateVertex(b);
+                int weight = scanner.nextInt();
 
                 if(a == b) throw new IllegalArgumentException("Self Loop is Detected!");
-                if(adj[a].contains(b)) throw new IllegalArgumentException("Parallel Edges are Detected!");
+                if(adj[a].containsKey(b)) throw new IllegalArgumentException("Parallel Edges are Detected!");
 
-                adj[a].add(b);
-                adj[b].add(a);
+                adj[a].put(b, weight);
+                adj[b].put(a, weight);
             }
         }
         catch(IOException e){
@@ -62,17 +64,52 @@ public class Graph {
     public boolean hasEdge(int v, int w){
         validateVertex(v);
         validateVertex(w);
-        return adj[v].contains(w);
+        return adj[v].containsKey(w);
     }
 
     public Iterable<Integer> adj(int v){
         validateVertex(v);
-        return adj[v];
+        return adj[v].keySet();
     }
 
+    public int getWeight(int v, int w){
+
+        if(hasEdge(v, w)) return adj[v].get(w);
+        throw new IllegalArgumentException(String.format("No edge %d-%d", v, w));
+    }
+
+    /// 下面的内容本小节还没有修改完成，下一小节继续：）
+    /*
     public int degree(int v){
         validateVertex(v);
         return adj[v].size();
+    }
+
+    public void removeEdge(int v, int w){
+        validateVertex(v);
+        validateVertex(w);
+        if(adj[v].contains(w)) E --;
+        adj[v].remove(w);
+        adj[w].remove(v);
+    }
+
+    @Override
+    public Object clone(){
+
+        try{
+            Graph cloned = (Graph) super.clone();
+            cloned.adj = new TreeSet[V];
+            for(int v = 0; v < V; v ++){
+                cloned.adj[v] = new TreeSet<Integer>();
+                for(int w: adj[v])
+                    cloned.adj[v].add(w);
+            }
+            return cloned;
+        }
+        catch (CloneNotSupportedException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
@@ -88,10 +125,5 @@ public class Graph {
         }
         return sb.toString();
     }
-
-    public static void main(String[] args){
-
-        Graph g = new Graph("g.txt");
-        System.out.print(g);
-    }
+    */
 }

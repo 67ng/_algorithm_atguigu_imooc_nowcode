@@ -13,11 +13,10 @@ public class GraphDFS {
 
         this.G = G;
         visited = new boolean[G.V()];
-        dfs(0);
+        dfs(0);//只有连通图才有效
     }
 
     private void dfs(int v){
-
         visited[v] = true;
         order.add(v);
         for(int w: G.adj(v))
@@ -31,7 +30,7 @@ public class GraphDFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\mzh\\IdeaProject\\_justforfun\\src\\imooc\\Graph_Algorithms\\Graph_DFS\\GraphDFSImprovement\\g.txt");
         GraphDFS graphDFS = new GraphDFS(g);
         System.out.println(graphDFS.order());
     }

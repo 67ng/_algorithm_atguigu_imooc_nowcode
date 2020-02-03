@@ -22,11 +22,11 @@ public class GraphDFS {
     private void dfs(int v){
 
         visited[v] = true;
-        pre.add(v);
+        pre.add(v);//深度优先先序遍历
         for(int w: G.adj(v))
             if(!visited[w])
                 dfs(w);
-        post.add(v);
+        post.add(v);//深度优先后序遍历
     }
 
     public Iterable<Integer> pre(){
@@ -39,7 +39,7 @@ public class GraphDFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\mzh\\IdeaProject\\_justforfun\\src\\imooc\\Graph_Algorithms\\Graph_DFS\\GraphDFSImprovement\\g.txt");
         GraphDFS graphDFS = new GraphDFS(g);
         System.out.println("DFS preOrder : " + graphDFS.pre());
         System.out.println("DFS postOrder : " + graphDFS.post());

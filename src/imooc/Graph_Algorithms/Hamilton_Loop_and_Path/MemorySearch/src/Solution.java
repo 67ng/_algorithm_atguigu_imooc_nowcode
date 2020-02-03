@@ -1,4 +1,4 @@
-package imooc.Graph_Algorithms.Hamilton
+package imooc.Graph_Algorithms.Hamilton_Loop_and_Path.MemorySearch.src;
 
 import java.util.Arrays;
 

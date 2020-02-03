@@ -1,4 +1,4 @@
-package imooc.Graph_Algorithms.Hamilton
+package imooc.Graph_Algorithms.Minimum_Tree_Spanning.Weighted_Graph.src;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 /// 暂时只支持无向无权图
-public class Graph {
+public class Graph implements Cloneable{
 
     private int V;
     private int E;
@@ -75,6 +75,33 @@ public class Graph {
         return adj[v].size();
     }
 
+    public void removeEdge(int v, int w){
+        validateVertex(v);
+        validateVertex(w);
+        if(adj[v].contains(w)) E --;
+        adj[v].remove(w);
+        adj[w].remove(v);
+    }
+
+    @Override
+    public Object clone(){
+
+        try{
+            Graph cloned = (Graph) super.clone();
+            cloned.adj = new TreeSet[V];
+            for(int v = 0; v < V; v ++){
+                cloned.adj[v] = new TreeSet<Integer>();
+                for(int w: adj[v])
+                    cloned.adj[v].add(w);
+            }
+            return cloned;
+        }
+        catch (CloneNotSupportedException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -87,11 +114,5 @@ public class Graph {
             sb.append('\n');
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args){
-
-        Graph g = new Graph("g.txt");
-        System.out.print(g);
     }
 }

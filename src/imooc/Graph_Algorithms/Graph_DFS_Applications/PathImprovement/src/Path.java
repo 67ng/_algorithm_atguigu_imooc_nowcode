@@ -11,7 +11,7 @@ public class Path {
     private int[] pre;
     private boolean[] visited;
 
-    public Path(Graph G, int s, int t){
+    public Path(Graph G, int s, int t) {
 
         G.validateVertex(s);
         G.validateVertex(t);
@@ -22,40 +22,40 @@ public class Path {
 
         visited = new boolean[G.V()];
         pre = new int[G.V()];
-        for(int i = 0; i < pre.length; i ++)
+        for (int i = 0; i < pre.length; i++)
             pre[i] = -1;
 
         dfs(s, s);
-        for(boolean e: visited)
+        for (boolean e : visited)
             System.out.print(e + " ");
         System.out.println();
     }
 
-    private boolean dfs(int v, int parent){
+    private boolean dfs(int v, int parent) {
 
         visited[v] = true;
         pre[v] = parent;
 
-        if(v == t) return true;
+        if (v == t) return true;
 
-        for(int w: G.adj(v))
-            if(!visited[w])
-                if(dfs(w, v))
+        for (int w : G.adj(v))
+            if (!visited[w])
+                if (dfs(w, v))
                     return true;
         return false;
     }
 
-    public boolean isConnected(){
+    public boolean isConnected() {
         return visited[t];
     }
 
-    public Iterable<Integer> path(){
+    public Iterable<Integer> path() {
 
         ArrayList<Integer> res = new ArrayList<Integer>();
-        if(!isConnected()) return res;
+        if (!isConnected()) return res;
 
         int cur = t;
-        while(cur != s){
+        while (cur != s) {
             res.add(cur);
             cur = pre[cur];
         }
@@ -65,9 +65,9 @@ public class Path {
         return res;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\mzh\\IdeaProject\\_justforfun\\src\\imooc\\Graph_Algorithms\\Graph_DFS_Applications\\PathImprovement\\g.txt");
         Path path = new Path(g, 0, 6);
         System.out.println("0 -> 6 : " + path.path());
 
