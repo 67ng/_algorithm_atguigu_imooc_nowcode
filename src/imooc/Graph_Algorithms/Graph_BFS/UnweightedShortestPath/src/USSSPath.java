@@ -13,9 +13,9 @@ public class USSSPath {
 
     private boolean[] visited;
     private int[] pre;
-    private int[] dis;
+    private int[] dis;//记录到起始点的距离
 
-    public USSSPath(Graph G, int s){
+    public USSSPath(Graph G, int s) {
 
         this.G = G;
         this.s = s;
@@ -23,54 +23,53 @@ public class USSSPath {
         visited = new boolean[G.V()];
         pre = new int[G.V()];
         dis = new int[G.V()];
-        for(int i = 0; i < G.V(); i ++) {
+        for (int i = 0; i < G.V(); i++) {
             pre[i] = -1;
             dis[i] = -1;
         }
         bfs(s);
 
-        for(int i = 0; i < G.V(); i ++)
+        for (int i = 0; i < G.V(); i++)
             System.out.print(dis[i] + " ");
         System.out.println();
     }
 
-    private void bfs(int s){
+    private void bfs(int s) {
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(s);
         visited[s] = true;
         pre[s] = s;
         dis[s] = 0;
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int v = queue.remove();
-
-            for(int w: G.adj(v))
-                if(!visited[w]){
+            for (int w : G.adj(v))
+                if (!visited[w]) {
                     queue.add(w);
                     visited[w] = true;
                     pre[w] = v;
-                    dis[w] = dis[v] + 1;
+                    dis[w] = dis[v] + 1;//距离加一
                 }
         }
     }
 
-    public boolean isConnectedTo(int t){
+    public boolean isConnectedTo(int t) {
         G.validateVertex(t);
         return visited[t];
     }
 
-    public int dis(int t){
+    public int dis(int t) {
         G.validateVertex(t);
         return dis[t];
     }
 
-    public Iterable<Integer> path(int t){
+    public Iterable<Integer> path(int t) {
 
         ArrayList<Integer> res = new ArrayList<Integer>();
-        if(!isConnectedTo(t)) return res;
+        if (!isConnectedTo(t)) return res;
 
         int cur = t;
-        while(cur != s){
+        while (cur != s) {
             res.add(cur);
             cur = pre[cur];
         }
@@ -80,9 +79,9 @@ public class USSSPath {
         return res;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Graph_BFS\\UnweightedShortestPath\\g.txt");
         USSSPath ussspath = new USSSPath(g, 0);
         System.out.println("0 -> 6 : " + ussspath.path(6));
         System.out.println("0 -> 6 : " + ussspath.dis(6));

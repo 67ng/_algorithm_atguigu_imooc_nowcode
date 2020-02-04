@@ -3,7 +3,7 @@ package imooc.Graph_Algorithms.Graph_DFS_Applications.CycleDetection.src;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Path {
+public class  Path {
 
     private Graph G;
     private int s, t;

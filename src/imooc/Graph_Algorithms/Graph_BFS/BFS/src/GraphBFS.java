@@ -12,7 +12,6 @@ public class GraphBFS {
     private ArrayList<Integer> order = new ArrayList<>();
 
     public GraphBFS(Graph G){
-
         this.G = G;
         visited = new boolean[G.V()];
         for(int v = 0; v < G.V(); v ++)
@@ -20,8 +19,8 @@ public class GraphBFS {
                 bfs(v);
     }
 
+    //从传入顶点开始bfs
     private void bfs(int s){
-
         Queue<Integer> queue = new LinkedList<>();
         queue.add(s);
         visited[s] = true;
@@ -43,7 +42,7 @@ public class GraphBFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Graph_BFS\\BFS\\g.txt");
         GraphBFS graphBFS = new GraphBFS(g);
         System.out.println("BFS Order : " + graphBFS.order());
     }
