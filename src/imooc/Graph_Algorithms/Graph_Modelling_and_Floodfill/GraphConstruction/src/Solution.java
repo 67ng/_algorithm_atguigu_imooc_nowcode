@@ -33,6 +33,7 @@ class Solution {
         return res;
     }
 
+    //DFS整个图，返回连通分量的顶点个数
     private int dfs(int v){
 
         visited[v] = true;
@@ -43,6 +44,7 @@ class Solution {
         return res;
     }
 
+    //图的建模
     private HashSet<Integer>[] constructGraph(){
 
         HashSet<Integer>[] g = new HashSet[R * C];
@@ -56,7 +58,8 @@ class Solution {
                     int nextx = x + dirs[d][0];
                     int nexty = y + dirs[d][1];
                     if(inArea(nextx, nexty) && grid[nextx][nexty] == 1) {
-                        int next = nextx * C + nexty;
+                        int next = nextx * C + nexty;//将二维索引转为一维索引
+                        //使用邻接表表示图
                         g[v].add(next);
                         g[next].add(v);
                     }

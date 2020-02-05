@@ -15,21 +15,20 @@ public class Solution {
         visited = new boolean[V];
         colors = new int[V];
 
-        for(int v = 0; v < V; v ++)
-            if(!visited[v])
-                if(!dfs(v, 0)) return false;
+        for (int v = 0; v < V; v++)
+            if (!visited[v])
+                if (!dfs(v, 0)) return false;
         return true;
     }
 
-    private boolean dfs(int v, int color){
+    private boolean dfs(int v, int color) {
 
         visited[v] = true;
         colors[v] = color;
-        for(int w: graph[v])
-            if(!visited[w]){
-                if(!dfs(w, 1 - color)) return false;
-            }
-            else if(colors[v] == colors[w])
+        for (int w : graph[v])
+            if (!visited[w]) {
+                if (!dfs(w, 1 - color)) return false;
+            } else if (colors[v] == colors[w])
                 return false;
         return true;
     }
