@@ -62,6 +62,7 @@ public class WaterPuzzle {
         }
         res.add(0);
         Collections.reverse(res);
+        System.out.println(Arrays.toString(pre));
         return res;
     }
 
