@@ -23,7 +23,7 @@ public class HamiltonLoop {
 
         visited[v] = true;
         pre[v] = parent;
-        left --;
+        left --;//存储没访问的节点数
         if(left == 0 && G.hasEdge(v, 0)){
             end = v;
             return true;
@@ -60,11 +60,11 @@ public class HamiltonLoop {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Hamilton_Loop_and_Path\\HamiltonLoopOptimization\\g.txt");
         HamiltonLoop hl = new HamiltonLoop(g);
         System.out.println(hl.result());
 
-        Graph g2 = new Graph("g2.txt");
+        Graph g2 = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Hamilton_Loop_and_Path\\HamiltonLoopOptimization\\g2.txt");
         HamiltonLoop hl2 = new HamiltonLoop(g2);
         System.out.println(hl2.result());
     }
