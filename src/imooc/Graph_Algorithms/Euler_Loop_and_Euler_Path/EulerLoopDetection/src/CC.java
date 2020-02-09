@@ -53,7 +53,7 @@ public class CC {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("g.txt");
+        Graph g = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Euler_Loop_and_Euler_Path\\HierholzerAlgorithm\\g.txt");
         CC cc = new CC(g);
         System.out.println(cc.count());
 

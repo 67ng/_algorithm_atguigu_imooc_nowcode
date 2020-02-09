@@ -24,7 +24,7 @@ public class Kruskal {
 
         Collections.sort(edges);
 
-        /// Kruskal 算法还未实现完成，下一小节继续：）
+        /// Kruskal 算法还未实现完成，下一小节继续(～￣▽￣)～
     }
 
     public ArrayList<WeightedEdge> result(){
