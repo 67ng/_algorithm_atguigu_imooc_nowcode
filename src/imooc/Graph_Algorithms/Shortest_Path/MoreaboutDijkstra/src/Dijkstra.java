@@ -12,24 +12,24 @@ public class Dijkstra {
     private int s;
     private int[] dis;
     private boolean[] visited;
-    private int[] pre;
+    private int[] pre;//记录最短路径
 
-    private class Node implements Comparable<Node>{
+    private class Node implements Comparable<Node> {
 
         public int v, dis;
 
-        public Node(int v, int dis){
+        public Node(int v, int dis) {
             this.v = v;
             this.dis = dis;
         }
 
         @Override
-        public int compareTo(Node another){
+        public int compareTo(Node another) {
             return dis - another.dis;
         }
     }
 
-    public Dijkstra(WeightedGraph G, int s){
+    public Dijkstra(WeightedGraph G, int s) {
 
         this.G = G;
 
@@ -37,7 +37,7 @@ public class Dijkstra {
         this.s = s;
 
         dis = new int[G.V()];
-        Arrays.fill(dis, Integer.MAX_VALUE);
+        Arrays.fill(dis, Integer.MAX_VALUE);//小心权值可能会溢出
 
         pre = new int[G.V()];
         Arrays.fill(pre, -1);
@@ -48,43 +48,42 @@ public class Dijkstra {
 
         PriorityQueue<Node> pq = new PriorityQueue<Node>();
         pq.add(new Node(s, 0));
-        while(!pq.isEmpty()){
+        while (!pq.isEmpty()) {
 
             int cur = pq.remove().v;
-
-            if(visited[cur]) continue;
+            if (visited[cur]) continue;
 
             visited[cur] = true;
-            for(int w: G.adj(cur))
-                if(!visited[w]){
-                    if(dis[cur] + G.getWeight(cur, w) < dis[w]){
+            for (int w : G.adj(cur))
+                if (!visited[w]) {
+                    if (dis[cur] + G.getWeight(cur, w) < dis[w]) {
                         dis[w] = dis[cur] + G.getWeight(cur, w);
                         pq.add(new Node(w, dis[w]));
-                        pre[w] = cur;
+                        pre[w] = cur;//更新前置顶点
                     }
                 }
         }
     }
 
-    public boolean isConnectedTo(int v){
+    public boolean isConnectedTo(int v) {
 
         G.validateVertex(v);
         return visited[v];
     }
 
-    public int distTo(int v){
+    public int distTo(int v) {
 
         G.validateVertex(v);
         return dis[v];
     }
 
-    public Iterable<Integer> path(int t){
+    public Iterable<Integer> path(int t) {
 
         ArrayList<Integer> res = new ArrayList<>();
-        if(!isConnectedTo(t)) return res;
+        if (!isConnectedTo(t)) return res;
 
         int cur = t;
-        while(cur != s){
+        while (cur != s) {
             res.add(cur);
             cur = pre[cur];
         }
@@ -94,11 +93,11 @@ public class Dijkstra {
         return res;
     }
 
-    static public void main(String[] args){
+    static public void main(String[] args) {
 
-        WeightedGraph g = new WeightedGraph("g.txt");
+        WeightedGraph g = new WeightedGraph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Shortest_Path\\DijkstraAlgorithmOptimized\\g.txt");
         Dijkstra dij = new Dijkstra(g, 0);
-        for(int v = 0; v < g.V(); v ++)
+        for (int v = 0; v < g.V(); v++)
             System.out.print(dij.distTo(v) + " ");
         System.out.println();
 

@@ -1,4 +1,5 @@
-package imooc.Graph_Algorithms.Shortest_Path.BellmanFordAlgorithm.src;/// Leetcode 743. Network Delay Time
+package imooc.Graph_Algorithms.Shortest_Path.BellmanFordAlgorithm.src;
+/// Leetcode 743. Network Delay Time
 /// https://leetcode.com/problems/network-delay-time/
 ///
 /// 课程中在这里暂时没有介绍这个问题
