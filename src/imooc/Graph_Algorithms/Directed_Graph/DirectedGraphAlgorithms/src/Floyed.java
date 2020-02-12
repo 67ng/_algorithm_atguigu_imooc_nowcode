@@ -52,7 +52,7 @@ public class Floyed {
 
     static public void main(String[] args){
 
-        WeightedGraph g = new WeightedGraph("wg.txt", true);
+        WeightedGraph g = new WeightedGraph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\DirectedGraphAlgorithms\\wg.txt", true);
         Floyed floyed = new Floyed(g);
         if(!floyed.hasNegativeCycle()){
             for(int v = 0; v < g.V(); v ++){
@@ -64,7 +64,7 @@ public class Floyed {
         else
             System.out.println("exist negative cycle.");
 
-        WeightedGraph g2 = new WeightedGraph("wg2.txt", true);
+        WeightedGraph g2 = new WeightedGraph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\DirectedGraphAlgorithms\\wg2.txt", true);
         Floyed floyed2 = new Floyed(g2);
         if(!floyed2.hasNegativeCycle()){
             for(int v = 0; v < g.V(); v ++){

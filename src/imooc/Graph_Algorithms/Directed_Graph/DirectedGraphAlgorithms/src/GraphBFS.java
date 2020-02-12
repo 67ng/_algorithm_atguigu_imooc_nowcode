@@ -43,7 +43,7 @@ public class GraphBFS {
 
     public static void main(String[] args){
 
-        Graph g = new Graph("ug.txt", true);
+        Graph g = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\DirectedGraphAlgorithms\\ug.txt", true);
         GraphBFS graphBFS = new GraphBFS(g);
         System.out.println("BFS Order : " + graphBFS.order());
     }

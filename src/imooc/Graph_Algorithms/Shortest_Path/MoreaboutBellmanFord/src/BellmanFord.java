@@ -3,7 +3,12 @@ package imooc.Graph_Algorithms.Shortest_Path.MoreaboutBellmanFord.src;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-
+/**
+ *
+ * Bellman-Ford的优化，SPFA算法，使用队列存储松弛操作
+ *
+ *
+* */
 public class BellmanFord {
 
     private WeightedGraph G;
@@ -76,7 +81,7 @@ public class BellmanFord {
 
     static public void main(String[] args){
 
-        WeightedGraph g = new WeightedGraph("g.txt");
+        WeightedGraph g = new WeightedGraph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Shortest_Path\\MoreaboutBellmanFord\\g.txt");
         BellmanFord bf = new BellmanFord(g, 0);
         if(!bf.hasNegativeCycle()){
             for(int v = 0; v < g.V(); v ++)
@@ -88,7 +93,7 @@ public class BellmanFord {
         else
             System.out.println("exist negative cycle.");
 
-        WeightedGraph g2 = new WeightedGraph("g2.txt");
+        WeightedGraph g2 = new WeightedGraph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Shortest_Path\\MoreaboutBellmanFord\\g2.txt");
         BellmanFord bf2 = new BellmanFord(g2, 0);
         if(!bf2.hasNegativeCycle()){
             for(int v = 0; v < g2.V(); v ++)

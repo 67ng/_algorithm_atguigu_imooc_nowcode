@@ -40,7 +40,7 @@ public class Graph{
                 if(a == b) throw new IllegalArgumentException("Self Loop is Detected!");
                 if(adj[a].contains(b)) throw new IllegalArgumentException("Parallel Edges are Detected!");
 
-                adj[a].add(b);
+                adj[a].add(b);//a->b
                 if(!directed)
                     adj[b].add(a);
             }
@@ -133,10 +133,10 @@ public class Graph{
 
     public static void main(String[] args){
 
-        Graph ug = new Graph("ug.txt", true);
+        Graph ug = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\DirectedGraph\\ug.txt", true);
         System.out.print(ug);
 
-        Graph ug2 = new Graph("ug.txt", false);
+        Graph ug2 = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\DirectedGraph\\ug.txt", false);
         System.out.print(ug2);
     }
 }
