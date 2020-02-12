@@ -80,6 +80,7 @@ public class Graph implements Cloneable{
         if(!directed) this.E /= 2;
     }
 
+    //求解反图
     public Graph reverseGraph(){
 
         TreeSet<Integer>[] rAdj = new TreeSet[V];

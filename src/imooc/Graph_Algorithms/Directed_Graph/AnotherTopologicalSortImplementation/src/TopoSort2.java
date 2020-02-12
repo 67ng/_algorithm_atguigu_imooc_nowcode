@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
-
+/**
+ *
+ * DFS的后序遍历的逆序就是拓扑排序
+ *
+ * */
 public class TopoSort2 {
 
     private Graph G;
@@ -39,7 +43,7 @@ public class TopoSort2 {
 
     public static void main(String[] args){
 
-        Graph ug = new Graph("ug.txt", true);
+        Graph ug = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\AnotherTopologicalSortImplementation\\ug.txt", true);
         TopoSort2 topoSort = new TopoSort2(ug);
         System.out.println(topoSort.result());
     }

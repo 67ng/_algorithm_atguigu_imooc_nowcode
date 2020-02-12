@@ -1,4 +1,5 @@
-package imooc.Graph_Algorithms.Directed_Graph.TopologicalSort.src;/// Leetcode 210. Course Schedule II
+package imooc.Graph_Algorithms.Directed_Graph.TopologicalSort.src;
+/// Leetcode 210. Course Schedule II
 /// https://leetcode.com/problems/course-schedule-ii/
 ///
 /// 课程中在这里暂时没有介绍这个问题

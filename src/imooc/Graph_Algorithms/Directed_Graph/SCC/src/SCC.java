@@ -1,4 +1,10 @@
 package imooc.Graph_Algorithms.Directed_Graph.SCC.src;
+/**
+ * 1.在一个强联通分量中，任何两点都可达
+ * <p>
+ * 2.如果将所有的强联通分量看作一个点，得到的有向图一定是DAG
+ *
+ */
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -10,9 +16,9 @@ public class SCC {
     private int[] visited;
     private int scccount = 0;
 
-    public SCC(Graph G){
+    public SCC(Graph G) {
 
-        if(!G.isDirected())
+        if (!G.isDirected())
             throw new IllegalArgumentException("SCC only works in directed graph");
 
         this.G = G;
@@ -21,57 +27,60 @@ public class SCC {
 
         GraphDFS dfs = new GraphDFS(G.reverseGraph());
         ArrayList<Integer> order = new ArrayList<>();
-        for(int v: dfs.post())
+        for (int v : dfs.post())
             order.add(v);
-        Collections.reverse(order);
+        Collections.reverse(order);//反图的后序遍历的逆序
 
-        for(int v: order)
-            if(visited[v] == -1){
+        //Kosaraju算法：对每个顶点进行dfs，各个顶点将会统计到不同的强联通分量中
+        for (int v : order)//order确定的顺序，不会把后面的点排到前面去
+            if (visited[v] == -1) {
                 dfs(v, scccount);
-                scccount ++;
+                scccount++;
             }
     }
 
-    private void dfs(int v, int sccid){
+    private void dfs(int v, int sccid) {
 
         visited[v] = sccid;
-        for(int w: G.adj(v))
-            if(visited[w] == -1)
+        for (int w : G.adj(v))
+            if (visited[w] == -1)
                 dfs(w, sccid);
     }
 
-    public int count(){
+    public int count() {
         return scccount;
     }
 
-    public boolean isStronglyConnected(int v, int w){
+    //是否强联通
+    public boolean isStronglyConnected(int v, int w) {
         G.validateVertex(v);
         G.validateVertex(w);
         return visited[v] == visited[w];
     }
 
-    public ArrayList<Integer>[] components(){
+    //返回所有强联通分量
+    public ArrayList<Integer>[] components() {
 
         ArrayList<Integer>[] res = new ArrayList[scccount];
-        for(int i = 0; i < scccount; i ++)
+        for (int i = 0; i < scccount; i++)
             res[i] = new ArrayList<Integer>();
 
-        for(int v = 0; v < G.V(); v ++)
+        for (int v = 0; v < G.V(); v++)
             res[visited[v]].add(v);
         return res;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Graph g = new Graph("ug.txt", true);
+        Graph g = new Graph("C:\\Users\\daito\\ideaproject\\justforfun\\src\\imooc\\Graph_Algorithms\\Directed_Graph\\SCC\\ug.txt", true);
         SCC scc = new SCC(g);
         System.out.println(scc.count());
         // 4
 
         ArrayList<Integer>[] comp = scc.components();
-        for(int sccid = 0; sccid < comp.length; sccid ++){
+        for (int sccid = 0; sccid < comp.length; sccid++) {
             System.out.print(sccid + " : ");
-            for(int w: comp[sccid])
+            for (int w : comp[sccid])
                 System.out.print(w + " ");
             System.out.println();
         }
