@@ -8,94 +8,12 @@ public class Sort_Sum{
  //详细内容见下面网址
  //https://mp.weixin.qq.com/s?__biz=MzIwNTk5NjEzNw==&mid=2247486726&idx=1&sn=2ab01d70d3411b1db3f0cf0c7dbfab21&chksm=97292400a05ead16926aca0e192de97be69d0a36d2563306aefa7b27bd30d734303fba3c815a&mpshare=1&scene=1&srcid=12046A7QAEnrTOGTMjAG5RzB&pass_ticket=54dZ5vpvrHzMqPKaW8vTsH5eu%2FMXOBzFKuBs2oVBKPKFhhH9UhpdSYO2Wcs5Ul2c#rd
 
-   /**
-    * 冒泡排序
-    *
-    * @param array
-    * @return
-    */
-   public static int[] bubbleSort(int[] array) {
-       if (array.length == 0)
-           return array;
-       for (int i = 0; i < array.length; i++)
-           for (int j = 0; j < array.length - 1 - i; j++)
-               if (array[j + 1] < array[j]) {
-                   int temp = array[j + 1];
-                   array[j + 1] = array[j];
-                   array[j] = temp;
-               }
-       return array;
-   }
+
    //------------------------------------------------------------------------------------------
 
-   /**
-    * 选择排序
-    * @param array
-    * @return
-    */
-   public static int[] selectionSort(int[] array) {
-       if (array.length == 0)
-           return array;
-       for (int i = 0; i < array.length; i++) {
-           int minIndex = i;
-           for (int j = i; j < array.length; j++) {
-               if (array[j] < array[minIndex]) //找到最小的数
-                   minIndex = j; //将最小数的索引保存
-           }
-           int temp = array[minIndex];
-           array[minIndex] = array[i];
-           array[i] = temp;
-       }
-       return array;
-   }
+
    //------------------------------------------------------------------------------------------
 
-   /**
-    * 插入排序
-    * @param array
-    * @return
-    */
-   public static int[] insertionSort(int[] array) {
-       if (array.length == 0)
-           return array;
-       int current;
-       for (int i = 0; i < array.length - 1; i++) {
-           current = array[i + 1];
-           int preIndex = i;
-           while (preIndex >= 0 && current < array[preIndex]) {
-               array[preIndex + 1] = array[preIndex];
-               preIndex--;
-           }
-           array[preIndex + 1] = current;
-       }
-       return array;
-   }
-   //------------------------------------------------------------------------------------------
-
-   /**
-    * 希尔排序
-    *
-    * @param array
-    * @return
-    */
-   public static int[] ShellSort(int[] array) {
-       int len = array.length;
-       int temp, gap = len / 2;
-       while (gap > 0) {
-           for (int i = gap; i < len; i++) {
-               temp = array[i];
-               int preIndex = i - gap;
-               while (preIndex >= 0 && array[preIndex] > temp) {
-                   array[preIndex + gap] = array[preIndex];
-                   preIndex -= gap;
-               }
-               array[preIndex + gap] = temp;
-           }
-           gap /= 2;
-       }
-       return array;
-   }
-   //------------------------------------------------------------------------------------------
 
    /**
     * 归并排序
@@ -183,57 +101,8 @@ public class Sort_Sum{
    //--------------------------------------------------------------------------------------------
 
    //声明全局变量，用于记录数组array的长度；
-static int len;
-   /**
-    * 堆排序算法
-    *
-    * @param array
-    * @return
-    */
-   public static int[] HeapSort(int[] array) {
-       len = array.length;
-       if (len < 1) return array;
-       //1.构建一个最大堆
-       buildMaxHeap(array);
-       //2.循环将堆首位（最大值）与末位交换，然后在重新调整最大堆
-       while (len > 0) {
-           swap(array, 0, len - 1);
-           len--;
-           adjustHeap(array, 0);
-       }
-       return array;
-   }
-   /**
-    * 建立最大堆
-    *
-    * @param array
-    */
-   public static void buildMaxHeap(int[] array) {
-       //从最后一个非叶子节点开始向上构造最大堆
-       for (int i = (len - 1) / 2; i >= 0; i--) {
-           adjustHeap(array, i);
-       }
-   }
-   /**
-    * 调整使之成为最大堆
-    *
-    * @param array
-    * @param i
-    */
-   public static void adjustHeap(int[] array, int i) {
-       int maxIndex = i;
-       //如果有左子树，且左子树大于父节点，则将最大指针指向左子树
-       if (i * 2 < len && array[i * 2] > array[maxIndex])
-           maxIndex = i * 2;
-       //如果有右子树，且右子树大于父节点，则将最大指针指向右子树
-       if (i * 2 + 1 < len && array[i * 2 + 1] > array[maxIndex])
-           maxIndex = i * 2 + 1;
-       //如果父节点不是最大值，则将父节点与最大值交换，并且递归调整与父节点交换的位置。
-       if (maxIndex != i) {
-           swap(array, maxIndex, i);
-           adjustHeap(array, maxIndex);
-       }
-   }
+
+
    //------------------------------------------------------------------------------------------
 
    /**
@@ -242,32 +111,7 @@ static int len;
     * @param array
     * @return
     */
-   public static int[] CountingSort(int[] array) {
-       if (array.length == 0) return array;
-       int bias, min = array[0], max = array[0];
-       for (int i = 1; i < array.length; i++) {
-           if (array[i] > max)
-               max = array[i];
-           if (array[i] < min)
-               min = array[i];
-       }
-       bias = 0 - min;
-       int[] bucket = new int[max - min + 1];
-       Arrays.fill(bucket, 0);
-       for (int i = 0; i < array.length; i++) {
-           bucket[array[i] + bias]++;
-       }
-       int index = 0, i = 0;
-       while (index < array.length) {
-           if (bucket[i] != 0) {
-               array[index] = i - bias;
-               bucket[i]--;
-               index++;
-           } else
-               i++;
-       }
-       return array;
-   }
+
    //------------------------------------------------------------------------------------------
 
    /**
@@ -313,36 +157,6 @@ static int len;
     * @param array
     * @return
     */
-   public static int[] RadixSort(int[] array) {
-       if (array == null || array.length < 2)
-           return array;
-       // 1.先算出最大数的位数；
-       int max = array[0];
-       for (int i = 1; i < array.length; i++) {
-           max = Math.max(max, array[i]);
-       }
-       int maxDigit = 0;
-       while (max != 0) {
-           max /= 10;
-           maxDigit++;
-       }
-       int mod = 10, div = 1;
-       ArrayList<ArrayList<Integer>> bucketList = new ArrayList<ArrayList<Integer>>();
-       for (int i = 0; i < 10; i++)
-           bucketList.add(new ArrayList<Integer>());
-       for (int i = 0; i < maxDigit; i++, mod *= 10, div *= 10) {
-           for (int j = 0; j < array.length; j++) {
-               int num = (array[j] % mod) / div;
-               bucketList.get(num).add(array[j]);
-           }
-           int index = 0;
-           for (int j = 0; j < bucketList.size(); j++) {
-               for (int k = 0; k < bucketList.get(j).size(); k++)
-                   array[index++] = bucketList.get(j).get(k);
-               bucketList.get(j).clear();
-           }
-       }
-       return array;
-   }
+
 }
 
