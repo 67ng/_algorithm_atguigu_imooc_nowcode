@@ -1,7 +1,11 @@
 package _courses.imooc.Graph_Algorithms.Network_Flows.EdmondsKarpAlgorithmCompleted.src;
 
 import java.util.*;
-
+/*
+*
+* 求解多米诺骨牌
+*
+* */
 class Solution {
 
     private int n, m;

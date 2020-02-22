@@ -8,10 +8,10 @@ public class Hungarian {
     private int maxMatching = 0;
     private int matching[];
 
-    public Hungarian(Graph G){
+    public Hungarian(Graph G) {
 
         BipartitionDetection bd = new BipartitionDetection(G);
-        if(!bd.isBipartite())
+        if (!bd.isBipartite())
             throw new IllegalArgumentException("Hungarian only works for bipartite graph.");
 
         this.G = G;
@@ -20,12 +20,13 @@ public class Hungarian {
 
         matching = new int[G.V()];
         Arrays.fill(matching, -1);
-        for(int v = 0; v < G.V(); v ++)
-            if(colors[v] == 0 && matching[v] == -1)
-                if(bfs(v)) maxMatching ++;
+        for (int v = 0; v < G.V(); v++)
+            if (colors[v] == 0 && matching[v] == -1)
+                if (bfs(v)) maxMatching++;
     }
 
-    private boolean bfs(int v){
+    //是否有增广路径
+    private boolean bfs(int v) {
 
         Queue<Integer> q = new LinkedList<>();
         int[] pre = new int[G.V()];
@@ -33,19 +34,18 @@ public class Hungarian {
 
         q.add(v);
         pre[v] = v;
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             int cur = q.remove();
-            for(int next: G.adj(cur))
-                if(pre[next] == -1){
-                    if(matching[next] != -1){
+            for (int next : G.adj(cur))
+                if (pre[next] == -1) {
+                    if (matching[next] != -1) {
                         q.add(matching[next]);
                         pre[next] = cur;
                         pre[matching[next]] = next;
-                    }
-                    else{
+                    } else {
                         pre[next] = cur;
                         ArrayList<Integer> augPath = getAugPath(pre, v, next);
-                        for(int i = 0; i < augPath.size(); i += 2){
+                        for (int i = 0; i < augPath.size(); i += 2) {
                             matching[augPath.get(i)] = augPath.get(i + 1);
                             matching[augPath.get(i + 1)] = augPath.get(i);
                         }
@@ -56,11 +56,11 @@ public class Hungarian {
         return false;
     }
 
-    private ArrayList<Integer> getAugPath(int[] pre, int start, int end){
+    private ArrayList<Integer> getAugPath(int[] pre, int start, int end) {
 
         ArrayList<Integer> res = new ArrayList<>();
         int cur = end;
-        while(cur != start){
+        while (cur != start) {
             res.add(cur);
             cur = pre[cur];
         }
@@ -68,15 +68,15 @@ public class Hungarian {
         return res;
     }
 
-    public int maxMatching(){
+    public int maxMatching() {
         return maxMatching;
     }
 
-    public boolean isPerfectMatching(){
+    public boolean isPerfectMatching() {
         return maxMatching * 2 == G.V();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Graph g = new Graph("g.txt");
         Hungarian hungarian = new Hungarian(g);

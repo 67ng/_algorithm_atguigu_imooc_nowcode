@@ -1,7 +1,21 @@
 package _courses.imooc.Graph_Algorithms.Matching_Algorithm.LCP4.src;
 
 import java.util.*;
-
+/**
+ * 问题：你有一块棋盘，棋盘上有一些格子已经坏掉了。你还有无穷块大小为1 * 2的多米诺骨牌，
+ * 你想把这些骨牌不重叠地覆盖在完好的格子上，请找出你最多能在棋盘上放多少块骨牌？这些骨牌可以横着或者竖着放。
+ *
+ * 输入：n, m代表棋盘的大小；broken是一个b * 2的二维数组，其中每个元素代表棋盘上每一个坏掉的格子的位置。
+ * 输出：一个整数，代表最多能在棋盘上放的骨牌数。
+ *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/broken-board-dominoes
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/broken-board-dominoes
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ * */
 public class Solution {
 
     public class Graph implements Cloneable{
@@ -445,11 +459,12 @@ public class Solution {
 
         Graph g = new Graph(n * m, false);
 
+        //构造二分图
         for(int i = 0; i < n; i ++)
             for(int j = 0; j < m; j ++){
-                if(j + 1 < m && board[i][j] == 0 && board[i][j + 1] == 0)
+                if(j + 1 < m && board[i][j] == 0 && board[i][j + 1] == 0)//向右找顶点
                     g.addEdge(i * m + j, i * m + (j + 1));
-                if(i + 1 < n && board[i][j] == 0 && board[i + 1][j] == 0)
+                if(i + 1 < n && board[i][j] == 0 && board[i + 1][j] == 0)//向下找顶点
                     g.addEdge(i * m + j, (i + 1) * m + j);
             }
 
