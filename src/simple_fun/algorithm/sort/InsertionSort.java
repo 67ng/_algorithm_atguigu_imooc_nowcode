@@ -24,7 +24,7 @@ public class InsertionSort {
     }
 
     //优化
-    public int[] insertionSortOpt(int[] arr) {
+    public static int[] insertionSortOpt(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
 

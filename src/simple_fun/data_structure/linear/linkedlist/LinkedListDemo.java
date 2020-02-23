@@ -1,14 +1,11 @@
-package _courses.imooc.datastructure.linkedlist;
-
-import java.util.List;
+package simple_fun.data_structure.linear.linkedlist;
 
 /**
- * Description:
- *
- * @author: NULL
- * @date: 2018/11/25 19:31
+ * @Description: 链表的底层实现
+ * @Author: 67ng
+ * @Date: 2020/2/23
  */
-public class LinkedlistDemo<E> {
+public class LinkedListDemo<E> {
     private class Node {
         public E e;
         public Node next;
@@ -35,7 +32,7 @@ public class LinkedlistDemo<E> {
     private Node dummyHead;//虚拟头节点
     private int size;
 
-    public LinkedlistDemo() {
+    public LinkedListDemo() {
         dummyHead = new Node();
         size = 0;
     }
@@ -181,4 +178,24 @@ public class LinkedlistDemo<E> {
         return res.toString();
     }
 
+    public static void main(String[] args) {
+
+        LinkedListDemo<Integer> linkedList = new LinkedListDemo<>();
+        for (int i = 0; i < 5; i++) {
+            linkedList.addFirst(i);
+            System.out.println(linkedList);
+        }
+
+        linkedList.add(2, 666);
+        System.out.println(linkedList);
+
+        linkedList.remove(2);
+        System.out.println(linkedList);
+
+        linkedList.removeFirst();
+        System.out.println(linkedList);
+
+        linkedList.removeLast();
+        System.out.println(linkedList);
+    }
 }
