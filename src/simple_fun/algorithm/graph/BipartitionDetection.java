@@ -1,7 +1,5 @@
 package simple_fun.algorithm.graph;
 
-import _courses.imooc.Graph_Algorithms.Graph_DFS_Applications.BipartitionDetection.src.Graph;
-
 /**
  * 二分图的检测
  * 核心思想：通过DFS分别对相邻顶点染不同的颜色，若推出染出相邻顶点同色就不是二分图
@@ -44,5 +42,7 @@ public class BipartitionDetection {
     public boolean isBipartite() {
         return isBipartite;
     }
+
+    public int[] colors(){ return colors;}
 
 }

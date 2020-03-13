@@ -104,6 +104,15 @@ public class WeightedGraph {
         throw new IllegalArgumentException(String.format("No edge %d-%d", v, w));
     }
 
+    public void setWeight(int v, int w, int newWeight){
+        if(!hasEdge(v, w))
+            throw new IllegalArgumentException(String.format("No edge %d-%d", v, w));
+
+        adj[v].put(w, newWeight);
+        if(!directed)
+            adj[w].put(v, newWeight);
+    }
+
     public Iterable<Integer> adj(int v){
         validateVertex(v);
         return adj[v].keySet();
