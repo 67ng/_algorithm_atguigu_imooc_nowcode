@@ -1,7 +1,7 @@
 package simple_fun.algorithm.string.kmp;
 
 /**
- * Description:字KM符P算串法匹扩配展问题题目
+ * Description:字符串KMP算法匹扩配展问题题目
  * <p>
  * 【题目】
  * 给定字符串str，其中绝对不含有字符'.'和'*'。再给定字符串exp，
