@@ -1,4 +1,4 @@
-package simple_fun.data_structure.tree.binary_tree.union_find;
+package simple_fun.data_structure.advanced.union_find;
 
 import _courses.imooc.datastructure.union_find.UF;
 

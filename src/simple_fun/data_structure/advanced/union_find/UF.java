@@ -1,4 +1,4 @@
-package simple_fun.data_structure.tree.binary_tree.union_find;
+package simple_fun.data_structure.advanced.union_find;
 
 /**
  * Description: 并查集的接口
