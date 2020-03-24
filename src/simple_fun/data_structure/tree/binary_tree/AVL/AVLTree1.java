@@ -6,7 +6,6 @@ package simple_fun.data_structure.tree.binary_tree.AVL;
  * @date: 2018/11/30 15:32
  */
 
-import _courses.imooc.datastructure.HashTable.FileOperation;
 
 import java.util.ArrayList;
 
@@ -325,7 +324,7 @@ public class AVLTree1<K extends Comparable<K>, V> {
         return retNode;
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
 
         System.out.println("Pride and Prejudice");
 
@@ -356,6 +355,6 @@ public class AVLTree1<K extends Comparable<K>, V> {
         }
 
         System.out.println();
-    }
+    }*/
 }
 
