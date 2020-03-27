@@ -5,7 +5,6 @@ package simple_fun.data_structure.tree.binary_tree.RBT;
  *
  * @date: 2018/11/30 15:33
  */
-import _courses.imooc.datastructure.HashTable.FileOperation;
 
 import java.util.ArrayList;
 
@@ -242,7 +241,7 @@ public class RBTree<K extends Comparable<K>, V> {
         }
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
 
         System.out.println("Pride and Prejudice");
 
@@ -264,6 +263,6 @@ public class RBTree<K extends Comparable<K>, V> {
         }
 
         System.out.println();
-    }
+    }*/
 }
 

@@ -1,6 +1,5 @@
 package simple_fun.data_structure.linear.stack;
 
-import _courses.imooc.datastructure.stack.Stack;
 
 import java.util.Random;
 

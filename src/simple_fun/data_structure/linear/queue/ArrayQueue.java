@@ -1,6 +1,5 @@
 package simple_fun.data_structure.linear.queue;
 
-import _courses.imooc.datastructure.queue.Queue;
 
 /**
  * Description:动态数组实现队列

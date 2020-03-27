@@ -1,6 +1,5 @@
 package simple_fun.algorithm.sort.quick_sort;
 
-import _courses.imooc.algorithmic.Sorting_Advance.QuickSort.SortTestHelper;
 
 public class InsertionSort {
 
@@ -42,8 +41,8 @@ public class InsertionSort {
     public static void main(String[] args) {
 
         int N = 10000;
-        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
-        SortTestHelper.testSort("bobo.algo.InsertionSort", arr);
+//        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+//        SortTestHelper.testSort("bobo.algo.InsertionSort", arr);
 
         return;
     }

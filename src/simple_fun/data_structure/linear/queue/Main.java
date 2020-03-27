@@ -1,7 +1,5 @@
 package simple_fun.data_structure.linear.queue;
 
-import _courses.imooc.datastructure.queue.LoopQueue;
-import _courses.imooc.datastructure.queue.Queue;
 
 import java.util.Random;
 

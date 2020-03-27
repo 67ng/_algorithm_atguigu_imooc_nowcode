@@ -1,6 +1,5 @@
 package simple_fun.data_structure.advanced.union_find;
 
-import _courses.imooc.datastructure.union_find.UF;
 
 /**
  * Description:查询O(1),合并O(n)

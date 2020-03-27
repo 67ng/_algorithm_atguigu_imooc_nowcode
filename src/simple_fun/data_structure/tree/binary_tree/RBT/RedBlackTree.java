@@ -1,6 +1,7 @@
 package simple_fun.data_structure.tree.binary_tree.RBT;
 
-import _courses.nowcode.zuoshen.datastructure.binarytree.AbstractSelfBalancingBinarySearchTree;
+
+import simple_fun.data_structure.tree.binary_tree.BST.AbstractSelfBalancingBinarySearchTree;
 
 /**
  * Description:红黑树

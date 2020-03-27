@@ -1,10 +1,10 @@
 package simple_fun.algorithm.graph.match;
 
 
-import _courses.imooc.Graph_Algorithms.Matching_Algorithm.SolvingMatchingProbleminMaxFlow.src.BipartitionDetection;
-import _courses.imooc.Graph_Algorithms.Matching_Algorithm.SolvingMatchingProbleminMaxFlow.src.Graph;
-import _courses.imooc.Graph_Algorithms.Matching_Algorithm.SolvingMatchingProbleminMaxFlow.src.MaxFlow;
-import _courses.imooc.Graph_Algorithms.Matching_Algorithm.SolvingMatchingProbleminMaxFlow.src.WeightedGraph;
+import simple_fun.algorithm.graph.BipartitionDetection;
+import simple_fun.algorithm.graph.Graph;
+import simple_fun.algorithm.graph.WeightedGraph;
+import simple_fun.algorithm.graph.network_flow.MaxFlow;
 
 /**
  * 最大流解决二分图的匹配问题，为每条边赋权值为1，最大流就是最大匹配值

@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.array.slide_window;
 
 import java.util.LinkedList;
 
-import static _courses.nowcode.zuoshenjinjie.bfprt.BFPRT.printArray;
+import static simple_fun.data_structure.linear.array.slide_window.LongestSumSubArrayLengthInPositiveArray.printArray;
 
 /**
  * Description:生成窗口(范围为三)中的最大值数组

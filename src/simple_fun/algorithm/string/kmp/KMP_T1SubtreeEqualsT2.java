@@ -1,7 +1,7 @@
 package simple_fun.algorithm.string.kmp;
 
 
-import static _courses.nowcode.zuoshenjinjie.kmp.KMP.getIndexOf;
+import static simple_fun.algorithm.string.kmp.KMP.getIndexOf;
 
 /**
  * Description:树的匹配问题
