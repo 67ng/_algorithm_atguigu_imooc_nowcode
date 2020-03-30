@@ -1,6 +1,8 @@
 package simple_fun.data_structure.tree.binary_tree.traversal;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -19,6 +21,30 @@ public class LevelTraversal {
         }
     }
 
+    private List<List<Integer>> levels = new ArrayList<>();
+
+    public void helper(Node node, int level) {
+        if (levels.size() == level)
+            levels.add(new ArrayList<Integer>());
+
+        levels.get(level).add(node.value);
+
+        if (node.left != null)
+            helper(node.left, level + 1);
+        if (node.right != null)
+            helper(node.right, level + 1);
+    }
+
+    //递归
+    public List<List<Integer>> levelOrder(Node root) {
+        if (root == null) return
+                levels;
+        helper(root, 0);
+        return levels;
+    }
+
+
+    //非递归
     public static void levelTraversal(Node head) {
         if (head == null) return;
 
