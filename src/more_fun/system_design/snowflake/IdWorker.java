@@ -1,4 +1,4 @@
-package more_fun.snowflake;
+package more_fun.system_design.snowflake;
 
 /**
  * Description: Snowflake算法

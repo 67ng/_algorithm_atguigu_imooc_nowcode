@@ -1,4 +1,4 @@
-package more_fun.database;
+package more_fun.database.Redis;
 
 import java.util.ArrayList;
 import java.util.List;
