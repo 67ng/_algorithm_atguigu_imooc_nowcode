@@ -1,4 +1,4 @@
-package simple_fun.data_structure.linear.linkedlist;
+package more_fun.system_design.cache;
 
 import java.util.HashMap;
 

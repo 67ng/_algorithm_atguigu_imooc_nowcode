@@ -1,4 +1,4 @@
-package simple_fun.data_structure.linear.linkedlist;
+package more_fun.database.Redis;
 
 import java.util.ArrayList;
 import java.util.Iterator;
