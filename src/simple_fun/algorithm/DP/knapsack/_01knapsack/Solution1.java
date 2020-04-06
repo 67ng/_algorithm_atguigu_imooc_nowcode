@@ -1,4 +1,4 @@
-package simple_fun.algorithm.DP._01knapsack;
+package simple_fun.algorithm.DP.knapsack._01knapsack;
 
 /// 背包问题
 /// 记忆化搜索

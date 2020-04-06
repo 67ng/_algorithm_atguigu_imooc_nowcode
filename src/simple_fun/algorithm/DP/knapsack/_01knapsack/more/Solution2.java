@@ -1,4 +1,4 @@
-package simple_fun.algorithm.DP._01knapsack.more;
+package simple_fun.algorithm.DP.knapsack._01knapsack.more;
 
 /// 背包问题
 /// 动态规划改进
@@ -30,7 +30,4 @@ public class Solution2 {
         return memo[C];
     }
 
-    public static void main(String[] args) {
-
-    }
 }

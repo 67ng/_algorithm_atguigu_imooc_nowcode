@@ -1,10 +1,10 @@
-package simple_fun.algorithm.DP._01knapsack;
+package simple_fun.algorithm.DP.knapsack._01knapsack.more;
 
 /// 背包问题
-/// 动态规划
+/// 动态规划改进: 滚动数组
 /// 时间复杂度: O(n * C) 其中n为物品个数; C为背包容积
-/// 空间复杂度: O(n * C)
-public class Solution2 {
+/// 空间复杂度: O(C), 实际使用了2*C的额外空间
+public class Solution1 {
 
     public int knapsack01(int[] w, int[] v, int C){
 
@@ -18,19 +18,19 @@ public class Solution2 {
         if(n == 0 || C == 0)
             return 0;
 
-        int[][] memo = new int[n][C + 1];
+        int[][] memo = new int[2][C + 1];
 
-        for(int j = 0 ; j <= C ; j ++)//只有一个物品
-            memo[0][j] = (j >= w[0] ? v[0] : 0 );
+        for(int j = 0 ; j <= C ; j ++)
+            memo[0][j] = (j >= w[0] ? v[0] : 0);
 
         for(int i = 1 ; i < n ; i ++)
             for(int j = 0 ; j <= C ; j ++){
-                memo[i][j] = memo[i-1][j];//不考虑i物品
-                if(j >= w[i])//当剩余容量不小于i的质量时才考虑i物品
-                    memo[i][j] = Math.max(memo[i][j], v[i] + memo[i - 1][j - w[i]]);
+                memo[i % 2][j] = memo[(i-1) % 2][j];//只对行进行处理
+                if(j >= w[i])
+                    memo[i % 2][j] = Math.max(memo[i % 2][j], v[i] + memo[(i-1) % 2][j - w[i]]);
             }
 
-        return memo[n - 1][C];
+        return memo[(n-1) % 2][C];
     }
 
     public static void main(String[] args) {

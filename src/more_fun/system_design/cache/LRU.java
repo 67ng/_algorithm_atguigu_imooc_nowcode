@@ -9,7 +9,7 @@ import java.util.HashMap;
  * set(key,value)：将记录(key,value)插入该结构。
  * get(key)：返回key对应的value值。
  * 【要求】
- * 1．set和get方法的时间复杂度为O(1)。
+ * 1．set和 get方法的时间复杂度为O(1)。
  * 2．某个key的set或get操作一旦发生，认为这个key的记录成了最经常使用的。
  * 3．当缓存的大小超过K时，移除最不经常使用的记录，即set或get最久远的。
  *
