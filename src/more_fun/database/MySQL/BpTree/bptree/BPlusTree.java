@@ -1,6 +1,7 @@
 package more_fun.database.MySQL.BpTree.bptree;
 
-import ds.bplus.util.InvalidBTreeStateException;
+
+import more_fun.database.MySQL.BpTree.util.InvalidBTreeStateException;
 
 import java.io.File;
 import java.io.IOException;
