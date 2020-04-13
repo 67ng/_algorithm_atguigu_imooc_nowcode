@@ -77,6 +77,9 @@ public class Solution {
         return dp[m][n];
     }
 
+
+    //  (ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง字符串的DP问题(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง
+
     /**
      * @Name: 72.编辑距离
      * @Description: 给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
@@ -217,6 +220,189 @@ public class Solution {
             if (p.charAt(i) != '*') return false;
         return true;
     }
+
+
+    //  (ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́使用状态机解决股票买卖系列问题)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง
+    /**
+      for 状态1 in 状态1的所有取值：
+        for 状态2 in 状态2的所有取值：
+            for ...
+                dp[状态1][状态2][...] = 择优(选择1，选择2...)
+
+    此问题下即是:
+    dp[i][k][0 or 1]
+    0 <= i <= n-1, 1 <= k <= K
+    n 为天数，大 K 为最多交易数
+    此问题共 n × K × 2 种状态，全部穷举就能搞定。
+    for 0 <= i < n:
+        for 1 <= k <= K:
+            for s in {0, 1}:
+                dp[i][k][s] = max(buy, sell, rest)
+    求dp[n - 1][K][0]。
+
+    状态转移方程：
+    1.持有股票 dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
+    2.没有股票 dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
+
+    base case：
+        dp[-1][k][0] = dp[i][0][0] = 0
+        dp[-1][k][1] = dp[i][0][1] = -infinity
+
+    **/
+
+    /**
+     * @Name: 121.买卖股票的最佳时机
+     * @Description:给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+     * 如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
+     * 注意：你不能在买入股票前卖出股票。
+     * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+     * */
+
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        // base case: dp[-1][0] = 0, dp[-1][1] = -infinity
+        int dp_i_0 = 0, dp_i_1 = Integer.MIN_VALUE;//空间复杂度降为O(1)
+        for (int i = 0; i < n; i++) {
+            // dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
+            dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);
+            // dp[i][1] = max(dp[i-1][1], -prices[i])
+            dp_i_1 = Math.max(dp_i_1, -prices[i]);
+        }
+        return dp_i_0;
+    }
+
+    /**
+     * @Name: 122.买卖股票的最佳时机 II
+     * @Description: 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+     * 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
+     * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     *
+     * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+     * */
+
+    public int maxProfit2(int[] prices) {
+        int n = prices.length;
+        int dp_i_0 = 0, dp_i_1 = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            int temp = dp_i_0;
+            dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);
+            dp_i_1 = Math.max(dp_i_1, temp - prices[i]);
+        }
+        return dp_i_0;
+    }
+
+    /**
+     * @Name: 123.买卖股票的最佳时机 III
+     * @Description: 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+     * 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+     * 注意: 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     *
+     * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
+     * */
+
+    public int maxProfit3(int[] prices) {
+        int max_k = 2;
+        int n = prices.length;
+        int[][][] dp = new int[n][max_k + 1][2];
+        for (int i = 0; i < n; i++) {
+            for (int k = max_k; k >= 1; k--) {
+                if (i - 1 == -1) {
+                    /*处理 base case */
+                    dp[i][k][0] = 0;
+                    dp[i][k][1] = -prices[i];
+                    continue;
+                }
+                dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+                dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
+            }
+        }
+        // 穷举了 n × max_k × 2 个状态，正确。
+        return dp[n - 1][max_k][0];
+
+    }
+
+    //这里 k 取值范围比较小，所以可以不用 for 循环，直接把 k = 1 和 2 的情况手动列举出来也可以：
+    public int maxProfit3_2(int[] prices) {
+        int dp_i10 = 0, dp_i11 = Integer.MIN_VALUE;
+        int dp_i20 = 0, dp_i21 = Integer.MIN_VALUE;
+        for (int price : prices) {
+            dp_i20 = Math.max(dp_i20, dp_i21 + price);
+            dp_i21 = Math.max(dp_i21, dp_i10 - price);
+            dp_i10 = Math.max(dp_i10, dp_i11 + price);
+            dp_i11 = Math.max(dp_i11, -price);
+        }
+        return dp_i20;
+    }
+
+
+    /**
+     * @Name: 188.买卖股票的最佳时机 IV
+     * @Description: 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+     * 设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
+     * 注意: 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     *
+     * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
+     * */
+
+    public int maxProfit4(int max_k, int[] prices) {
+        int n = prices.length;
+        if (max_k > n / 2)
+            return maxProfit2(prices);//对应max_k取无穷大的情况
+
+        int[][][] dp = new int[n][max_k + 1][2];
+        for (int i = 0; i < n; i++)
+            for (int k = max_k; k >= 1; k--) {
+                if (i - 1 == -1) { /* 处理 base case */ }
+                dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
+                dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
+            }
+        return dp[n - 1][max_k][0];
+    }
+
+
+    /**
+     * @Name: 309.最佳买卖股票时机含冷冻期
+     * @Description: 给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​
+     * 设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
+     * 1.你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+     * 2.卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
+     *
+     * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+     * */
+
+    public int maxProfitWithCooldown(int[] prices) {
+        int n = prices.length;
+        int dp_i_0 = 0, dp_i_1 = Integer.MIN_VALUE;
+        int dp_pre_0 = 0; // 代表 dp[i-2][0]
+        for (int i = 0; i < n; i++) {
+            int temp = dp_i_0;
+            dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);
+            dp_i_1 = Math.max(dp_i_1, dp_pre_0 - prices[i]);
+            dp_pre_0 = temp;
+        }
+        return dp_i_0;
+    }
+
+    /**
+     * @Name: 714.买卖股票的最佳时机含手续费
+     * @Description: 给定一个整数数组 prices，其中第 i 个元素代表了第 i 天的股票价格 ；非负整数 fee 代表了交易股票的手续费用。
+     * 你可以无限次地完成交易，但是你每次交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。
+     * 返回获得利润的最大值。
+     *
+     * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+     * */
+
+    public int maxProfitWithFee(int[] prices, int fee) {
+        int n = prices.length;
+        int dp_i_0 = 0, dp_i_1 = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            int temp = dp_i_0;
+            dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);
+            dp_i_1 = Math.max(dp_i_1, temp - prices[i] - fee);//在第一个式子里减也是一样的，相当于卖出股票的价格减小了。
+        }
+        return dp_i_0;
+    }
+
 
     public static void main(String[] args) {
 
