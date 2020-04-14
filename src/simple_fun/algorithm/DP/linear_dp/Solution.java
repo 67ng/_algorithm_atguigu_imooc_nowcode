@@ -224,31 +224,30 @@ public class Solution {
 
     //  (ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́使用状态机解决股票买卖系列问题)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง(ง•̀_•́)ง
     /**
-      for 状态1 in 状态1的所有取值：
-        for 状态2 in 状态2的所有取值：
-            for ...
-                dp[状态1][状态2][...] = 择优(选择1，选择2...)
+     for 状态1 in 状态1的所有取值：
+     for 状态2 in 状态2的所有取值：
+     for ...
+     dp[状态1][状态2][...] = 择优(选择1，选择2...)
 
-    此问题下即是:
-    dp[i][k][0 or 1]
-    0 <= i <= n-1, 1 <= k <= K
-    n 为天数，大 K 为最多交易数
-    此问题共 n × K × 2 种状态，全部穷举就能搞定。
-    for 0 <= i < n:
-        for 1 <= k <= K:
-            for s in {0, 1}:
-                dp[i][k][s] = max(buy, sell, rest)
-    求dp[n - 1][K][0]。
+     此问题下即是:
+     dp[i][k][0 or 1]
+     0 <= i <= n-1, 1 <= k <= K
+     n 为天数，大 K 为最多交易数
+     此问题共 n × K × 2 种状态，全部穷举就能搞定。
+     for 0 <= i < n:
+     for 1 <= k <= K:
+     for s in {0, 1}:
+     dp[i][k][s] = max(buy, sell, rest)
+     求dp[n - 1][K][0]。
 
-    状态转移方程：
-    1.持有股票 dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
-    2.没有股票 dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
+     状态转移方程：
+     1.持有股票 dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])
+     2.没有股票 dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])
 
-    base case：
-        dp[-1][k][0] = dp[i][0][0] = 0
-        dp[-1][k][1] = dp[i][0][1] = -infinity
-
-    **/
+     base case：
+     dp[-1][k][0] = dp[i][0][0] = 0
+     dp[-1][k][1] = dp[i][0][1] = -infinity
+     **/
 
     /**
      * @Name: 121.买卖股票的最佳时机
@@ -256,7 +255,7 @@ public class Solution {
      * 如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
      * 注意：你不能在买入股票前卖出股票。
      * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
-     * */
+     */
 
     public int maxProfit(int[] prices) {
         int n = prices.length;
@@ -276,9 +275,8 @@ public class Solution {
      * @Description: 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
      * 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
      * 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-     *
      * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
-     * */
+     */
 
     public int maxProfit2(int[] prices) {
         int n = prices.length;
@@ -296,9 +294,8 @@ public class Solution {
      * @Description: 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
      * 设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
      * 注意: 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-     *
      * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
-     * */
+     */
 
     public int maxProfit3(int[] prices) {
         int max_k = 2;
@@ -340,9 +337,8 @@ public class Solution {
      * @Description: 给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
      * 设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
      * 注意: 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-     *
      * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
-     * */
+     */
 
     public int maxProfit4(int max_k, int[] prices) {
         int n = prices.length;
@@ -366,9 +362,8 @@ public class Solution {
      * 设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
      * 1.你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
      * 2.卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
-     *
      * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
-     * */
+     */
 
     public int maxProfitWithCooldown(int[] prices) {
         int n = prices.length;
@@ -388,9 +383,8 @@ public class Solution {
      * @Description: 给定一个整数数组 prices，其中第 i 个元素代表了第 i 天的股票价格 ；非负整数 fee 代表了交易股票的手续费用。
      * 你可以无限次地完成交易，但是你每次交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。
      * 返回获得利润的最大值。
-     *
      * @Linked: https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-     * */
+     */
 
     public int maxProfitWithFee(int[] prices, int fee) {
         int n = prices.length;
@@ -401,6 +395,93 @@ public class Solution {
             dp_i_1 = Math.max(dp_i_1, temp - prices[i] - fee);//在第一个式子里减也是一样的，相当于卖出股票的价格减小了。
         }
         return dp_i_0;
+    }
+
+    /**
+     * @Name: 53.最大子序和
+     * @Description: 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+     * @Linked: https://leetcode-cn.com/problems/maximum-subarray/
+     */
+
+    //贪心算法，时间复杂度O(n)，空间复杂度O(1)
+    public int maxSubArray(int[] nums) {
+        int n = nums.length;
+        int currSum = nums[0], maxSum = nums[0];
+
+        for (int i = 1; i < n; ++i) {
+            currSum = Math.max(nums[i], currSum + nums[i]);//包含当前元素的最大和
+            maxSum = Math.max(maxSum, currSum);
+        }
+        return maxSum;
+    }
+
+    //DP（Kadane算法），时间复杂度O(n)，空间复杂度O(1)
+    public int maxSubArray2(int[] nums) {
+        int n = nums.length, maxSum = nums[0];
+        for (int i = 1; i < n; ++i) {
+            if (nums[i - 1] > 0)
+                nums[i] += nums[i - 1];
+            maxSum = Math.max(nums[i], maxSum);
+        }
+        return maxSum;
+    }
+
+    /**
+     * @Name: 152.乘积最大子数组
+     * @Description: 给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字）。
+     * @Linked: https://leetcode-cn.com/problems/maximum-product-subarray/
+     */
+
+    public int maxProduct(int[] nums) {
+        int max = Integer.MIN_VALUE, imax = 1, imin = 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < 0) {
+                int tmp = imax;
+                imax = imin;
+                imin = tmp;
+            }
+            imax = Math.max(imax * nums[i], nums[i]);
+            imin = Math.min(imin * nums[i], nums[i]);
+
+            max = Math.max(max, imax);
+        }
+        return max;
+    }
+
+    /**
+     * @Name: 887.鸡蛋掉落
+     * @Description: 你将获得 K 个鸡蛋，并可以使用一栋从 1 到 N  共有 N 层楼的建筑。
+     * 每个蛋的功能都是一样的，如果一个蛋碎了，你就不能再把它掉下去。
+     * 你知道存在楼层 F ，满足 0 <= F <= N 任何从高于 F 的楼层落下的鸡蛋都会碎，从 F 楼层或比它低的楼层落下的鸡蛋都不会破。
+     * 每次移动，你可以取一个鸡蛋（如果你有完整的鸡蛋）并把它从任一楼层 X 扔下（满足 1 <= X <= N）。
+     * 你的目标是确切地知道 F 的值是多少。
+     * 无论 F 的初始值如何，你确定 F 的值的最小移动次数是多少？
+     * @Linked: https://leetcode-cn.com/problems/super-egg-drop/
+     */
+
+    //经典的谷歌面试题，现仅介绍一种独特的数学法
+//    如果鸡蛋没有碎，那么对应的是 f(T - 1, K)f(T−1,K)，也就是说在这一层的上方可以有 f(T - 1, K)f(T−1,K) 层；
+//    如果鸡蛋碎了，那么对应的是 f(T - 1, K - 1)f(T−1,K−1)，也就是说在这一层的下方可以有 f(T - 1， K - 1)f(T−1，K−1) 层。
+
+    public int superEggDrop(int K, int N) {
+        if (N == 1)
+            return 1;
+
+        int[][] f = new int[N + 1][K + 1];//做T次操作，有K个鸡蛋时，能找到答案的最高的N层楼
+        for (int i = 1; i <= K; ++i)
+            f[1][i] = 1;
+
+        int ans = -1;
+        for (int i = 2; i <= N; ++i) {
+            for (int j = 1; j <= K; ++j) {
+                f[i][j] = 1 + f[i - 1][j - 1] + f[i - 1][j];//状态转移方程
+            }
+            if (f[i][K] >= N) {
+                ans = i;
+                break;
+            }
+        }
+        return ans;
     }
 
 
