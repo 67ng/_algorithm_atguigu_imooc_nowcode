@@ -1,5 +1,8 @@
 package simple_fun.algorithm.DP.linear_dp;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * @Description: 线性动态规划的问题汇总
  * @Author: 67ng
@@ -462,7 +465,6 @@ public class Solution {
     //经典的谷歌面试题，现仅介绍一种独特的数学法
 //    如果鸡蛋没有碎，那么对应的是 f(T - 1, K)f(T−1,K)，也就是说在这一层的上方可以有 f(T - 1, K)f(T−1,K) 层；
 //    如果鸡蛋碎了，那么对应的是 f(T - 1, K - 1)f(T−1,K−1)，也就是说在这一层的下方可以有 f(T - 1， K - 1)f(T−1，K−1) 层。
-
     public int superEggDrop(int K, int N) {
         if (N == 1)
             return 1;
@@ -482,6 +484,48 @@ public class Solution {
             }
         }
         return ans;
+    }
+
+    /**
+     * @Name: 354.俄罗斯套娃信封问题
+     * @Description: 给定一些标记了宽度和高度的信封，宽度和高度以整数对形式 (w, h) 出现。
+     * 当另一个信封的宽度和高度都比这个信封大的时候，这个信封就可以放进另一个信封里，如同俄罗斯套娃一样。
+     * 请计算最多能有多少个信封能组成一组“俄罗斯套娃”信封（即可以把一个信封放到另一个信封里面）。不允许旋转信封。
+     * @Linked:
+     */
+
+    public int LIS(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+
+    public int maxEnvelopes(int[][] envelopes) {
+        // 1.sort on increasing in first dimension and decreasing in second
+        Arrays.sort(envelopes, new Comparator<int[]>() {
+            public int compare(int[] arr1, int[] arr2) {
+                if (arr1[0] == arr2[0]) {
+                    return arr2[1] - arr1[1];
+                } else {
+                    return arr1[0] - arr2[0];
+                }
+            }
+        });
+        // 2.extract the second dimension and run LIS
+        int[] secondDim = new int[envelopes.length];
+        for (int i = 0; i < envelopes.length; ++i)
+            secondDim[i] = envelopes[i][1];
+        return LIS(secondDim);
     }
 
 
