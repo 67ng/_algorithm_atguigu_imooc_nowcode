@@ -515,9 +515,9 @@ public class Solution {
         Arrays.sort(envelopes, new Comparator<int[]>() {
             public int compare(int[] arr1, int[] arr2) {
                 if (arr1[0] == arr2[0]) {
-                    return arr2[1] - arr1[1];
+                    return arr2[1] - arr1[1];//若相等则按照第二个维度降序，主要是保证不算到LIS里
                 } else {
-                    return arr1[0] - arr2[0];
+                    return arr1[0] - arr2[0];//按照第一个维度升序
                 }
             }
         });
@@ -525,7 +525,7 @@ public class Solution {
         int[] secondDim = new int[envelopes.length];
         for (int i = 0; i < envelopes.length; ++i)
             secondDim[i] = envelopes[i][1];
-        return LIS(secondDim);
+        return LIS(secondDim);//求第二个维度的LIS
     }
 
 
