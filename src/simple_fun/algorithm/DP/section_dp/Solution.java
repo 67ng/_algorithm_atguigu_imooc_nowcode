@@ -38,16 +38,33 @@ public class Solution {
      * @Linked: https://leetcode-cn.com/problems/count-different-palindromic-subsequences/
      */
 
+    /**
+     * 算法：
+     * 定义 dp[x][i][j] 为子串 S[i...j] 拥有不同回文子字符串的答案，且 S[i] == S[j] == 'a'+x。由于字符串只包含四个字符 a, b, c, d，因此 0 <= x < 4。dp 的公式如下：
+     * <p>
+     * 如果 S[i] != 'a'+x，则 dp[x][i][j] = dp[x][i+1][j]
+     * 如果 S[j] != 'a'+x，则 dp[x][i][j] = dp[x][i][j-1]
+     * 如果 S[i] == S[j] == 'a'+x，则 dp[x][i][j] = 2 + dp[0][i+1][j-1] + dp[1][i+1][j-1] + dp[2][i+1][j-1] + dp[3][i+1][j-1]。
+     * <p>
+     * 当第一个和最后一个字符相同时，我们需要计算子串 S[i+1][j-1] 中所有不同的回文（a、b、c、d 中的每一个）加上第一个和最后一个字符的两个回文。
+     * 设 n 为字符串 S 的长度，则最终的答案为 dp[0][0][n-1] + dp[1][0][n-1] + dp[2][0][n-1] + dp[3][0][n-1] mod 1000000007
+     **/
+
+
     public int countPalindromicSubsequences(String S) {
         int n = S.length();
         int mod = 1000000007;
-        int[][][] dp = new int[4][n][n];
+        int[][][] dp = new int[4][n][n];//dp[x][i][j] 为子串 S[i...j] 拥有不同回文子字符串的子问题答案。
+        // 例如，dp[0][i][j]为子串S[i...j]且含有a的的子结果
+        // 例如，dp[1][i][j]为子串S[i...j]且含有b的的子结果
+        // 例如，dp[2][i][j]为子串S[i...j]且含有c的的子结果
+        // 例如，dp[3][i][j]为子串S[i...j]且含有d的的子结果
 
         for (int i = n - 1; i >= 0; --i) {
             for (int j = i; j < n; ++j) {
                 for (int k = 0; k < 4; ++k) {
                     char c = (char) ('a' + k);
-                    if (j == i) {//base case1
+                    if (j == i) {//base case
                         if (S.charAt(i) == c)
                             dp[k][i][j] = 1;
                         else
@@ -59,12 +76,12 @@ public class Solution {
                             dp[k][i][j] = dp[k][i][j - 1];
                         else { // S[i] == S[j] == c
                             if (j == i + 1)
-                                dp[k][i][j] = 2; // "aa" : {"a", "aa"}base case2
+                                dp[k][i][j] = 2; // "aa" : {"a", "aa"}边界条件特殊处理
                             else { // length is > 2
                                 dp[k][i][j] = 2;
                                 for (int m = 0; m < 4; ++m) { // count each one within subwindows [i+1][j-1]
                                     dp[k][i][j] += dp[m][i + 1][j - 1];
-                                    dp[k][i][j] %= mod;
+                                    dp[k][i][j] %= mod;//注意子问题也不要越界
                                 }
                             }
                         }
@@ -90,7 +107,52 @@ public class Solution {
      */
 
     public int minScoreTriangulation(int[] A) {
-        return 0;
+        int[][] dp = new int[50][50];
+        for (int i = A.length - 1; i >= 0; --i)
+            for (int j = i + 1; j < A.length; ++j)
+                for (int k = i + 1; k < j; ++k)
+                    dp[i][j] = Math.min(dp[i][j] == 0 ?
+                            Integer.MAX_VALUE : dp[i][j], dp[i][k] + A[i] * A[k] * A[j] + dp[k][j]);
+        return dp[0][A.length - 1];
+    }
+
+    /**
+     * @Name: 312.戳气球
+     * @Description: 有 n 个气球，编号为0 到 n-1，每个气球上都标有一个数字，这些数字存在数组 nums 中。
+     * 现在要求你戳破所有的气球。每当你戳破一个气球 i 时，你可以获得 nums[left] * nums[i] * nums[right] 个硬币。
+     *  这里的 left 和 right 代表和 i 相邻的两个气球的序号。注意当你戳破了气球 i 后，气球 left 和气球 right 就变成了相邻的气球。
+     * 求所能获得硬币的最大数量。
+     * @Linked: https://leetcode-cn.com/problems/burst-balloons/
+     */
+
+    public int maxCoins(int[] nums) {
+        int[][] dp = new int[nums.length][nums.length];
+        return maxCoins(nums, 0, nums.length - 1, dp);
+    }
+
+    public int maxCoins(int[] nums, int start, int end, int[][] dp) {
+        if (start > end)
+            return 0;
+        if (dp[start][end] != 0)//利用了记忆化，剪枝
+            return dp[start][end];
+
+        int max = nums[start];
+        //核心是自底向上的记忆化
+        for (int i = start; i <= end; i++) {
+            int val = maxCoins(nums, start, i - 1, dp) +
+                    get(nums, i) * get(nums, start - 1) * get(nums, end + 1) +
+                    maxCoins(nums, i + 1, end, dp);//在区间[start,end]中最后扎i气球
+
+            max = Math.max(max, val);
+        }
+        dp[start][end] = max;//记录区间[start,end]的最大扎值
+        return max;
+    }
+
+    public int get(int[] nums, int i) {
+        if (i == -1 || i == nums.length)
+            return 1;
+        return nums[i];
     }
 
 }
