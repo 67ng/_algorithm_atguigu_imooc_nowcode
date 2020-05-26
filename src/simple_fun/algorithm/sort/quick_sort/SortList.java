@@ -2,6 +2,9 @@ package simple_fun.algorithm.sort.quick_sort;
 
 /**
  * @Description: 链表快排
+ *
+ * 注：链表的快排是稳定的
+ *
  * @Author: 67ng
  * @Date: 2020/5/24
  */
@@ -15,7 +18,8 @@ public class SortList {
     }
 
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null)
+            return head;
         ListNode left = new ListNode(-1);
         ListNode mid = new ListNode(-1);
         ListNode right = new ListNode(-1);
@@ -35,7 +39,7 @@ public class SortList {
                 rtail = rtail.next;
             }
         }
-        ltail.next = mtail.next = rtail.next = null;
+        ltail.next = mtail.next = rtail.next = null;//注意清空尾节点
         //递归执行
         left.next = sortList(left.next);
         right.next = sortList(right.next);
