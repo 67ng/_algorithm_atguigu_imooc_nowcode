@@ -9,7 +9,7 @@ package simple_fun.data_structure.advanced.union_find;
 // 我们的第三版Union-Find
 public class UnionFind3 implements UF {
 
-    private int[] parent; // parent[i]表示第一个元素所指向的父节点
+    private int[] parent; // parent[i]表示第i个元素所指向的父节点
     private int[] sz;     // sz[i]表示以i为根的集合中元素个数
 
     // 构造函数
@@ -61,7 +61,7 @@ public class UnionFind3 implements UF {
         if (pRoot == qRoot)
             return;
 
-        // 根据两个元素所在树的元素个数不同判断合并方向
+        // 根据两个元素所在树的元素个数不同判断合并方向，
         // 将元素个数少的集合合并到元素个数多的集合上
         if (sz[pRoot] < sz[qRoot]) {
             parent[pRoot] = qRoot;

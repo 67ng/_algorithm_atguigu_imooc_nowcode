@@ -2,7 +2,7 @@ package simple_fun.data_structure.advanced.union_find;
 
 
 /**
- * Description:
+ * Description:用树来存储节点
  *
  * @date: 2018/11/28 22:06
  */
@@ -10,7 +10,7 @@ package simple_fun.data_structure.advanced.union_find;
 public class UnionFind2 implements UF {
 
     // 我们的第二版Union-Find, 使用一个数组构建一棵指向父节点的树
-    // parent[i]表示第一个元素所指向的父节点
+    // parent[i]表示第个元素所指向的父节点
     private int[] parent;
 
     // 构造函数
