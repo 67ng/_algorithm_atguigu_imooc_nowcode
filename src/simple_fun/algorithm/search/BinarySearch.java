@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class BinarySearch {
     public static void main(String[] args) {
-        int arr[] = { 1, 8, 10, 89,1000,1000, 1234 };
+        int arr[] = {1, 8, 10, 89, 1000, 1000, 1234};
 //        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
 
 
@@ -22,7 +22,7 @@ public class BinarySearch {
         System.out.println("resIndexList=" + resIndexList);
     }
 
-    // 二分查找算法
+    // 标准二分查找算法
 
     /**
      * @param arr     数组
@@ -31,6 +31,7 @@ public class BinarySearch {
      * @param findVal 要查找的值
      * @return 如果找到就返回下标，如果没有找到，就返回 -1
      */
+    //递归法
     public static int binarySearch(int[] arr, int left, int right, int findVal) {
 
 
@@ -46,10 +47,26 @@ public class BinarySearch {
         } else if (findVal < midVal) { // 向左递归
             return binarySearch(arr, left, mid - 1, findVal);
         } else {
-
             return mid;
         }
 
+    }
+
+    //迭代法
+    public static int binarySearchNotRecur(int[] arr, int left, int right, int findVal) {
+        if (left > right)
+            return -1;
+        while (left <= right) {
+            int mid = left + (right - left) >> 2;
+            if (findVal > mid) { // 向右查找
+                left = mid + 1;
+            } else if (findVal < mid) { // 向左查找
+                right = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
     }
 
     //完成一个课后思考题:
