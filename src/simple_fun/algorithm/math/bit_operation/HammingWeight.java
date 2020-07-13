@@ -8,13 +8,7 @@ package simple_fun.algorithm.math.bit_operation;
 
 public class HammingWeight {
 
-    //    int start = -1000000000;
-//    int end = 1000;
-//    hammingWeight1: 16
-//    hammingWeight2: 7407
-//    hammingWeight3: 0
-    // you need to treat n as an unsigned value
-    //循环和位移动
+    //2的幂次与运算
     public int hammingWeight1(int n) {
         int bits = 0;
         int mask = 1;
@@ -27,8 +21,7 @@ public class HammingWeight {
         return bits;
     }
 
-    //位运算,原理:对于任意数字 n ，将 n 和 n - 1 做与运算，会把最后一个 1 的位变成 0
-    //数据太大时，性能不好
+    //位运算,原理:对于整数 n ，将 n 和 n - 1 做与运算，会把最后一个 1 的位变成 0
     public int hammingWeight2(int n) {
         int sum = 0;
         while (n != 0) {
@@ -56,7 +49,7 @@ public class HammingWeight {
 //        int end = Integer.MAX_VALUE;
 
         int start = 0;
-        int end = 1_000_000;
+        int end = 10_000_000;
         //hammingWeight1: 16ms
         //hammingWeight2: 0ms
         //hammingWeight3: 0ms
@@ -100,6 +93,5 @@ public class HammingWeight {
         long time6 = System.currentTimeMillis();
         System.out.println("hammingWeight3: " + (time6 - time5) + "ms");
     }
-
 
 }
