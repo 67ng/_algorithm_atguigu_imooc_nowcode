@@ -11,13 +11,16 @@ public class BaseOperation {
      * 位运算的一些性质：
      * 1.a^b^b=a
      * 2.x & (-x),取到x的最后一位1-bit
-     * 3.n&~1<<x,将n的第x位置为0
-     *
-     *
-     *
+     * 3.n&~1<<x,将n的 第x位 置为0
+     * 4.a & b,则有：
+     * (1)a*b>0(均为正或负)时,则有a&b<=Math.min(a,b),仅当a=b时取等号
+     * (2)a*b==0,则有a&b==0
+     * (3)a*b<0,则有a&b>=0
+     * <p>
+     * <p>
+     * <p>
      * 3.a % b = a & (b-1)
-     *
-     * */
+     */
     //判断奇偶
     public static boolean isOdd(int n) {
         return (n & 1) == 1;//true 奇数，false 偶数
