@@ -1,4 +1,4 @@
-package simple_fun.data_structure.linear.stack.monoton_stack;
+package simple_fun.data_structure.linear.stack.monoton_stack.app;
 
 import java.util.Stack;
 
