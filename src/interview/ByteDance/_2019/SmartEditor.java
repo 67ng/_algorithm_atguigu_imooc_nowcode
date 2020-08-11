@@ -30,7 +30,7 @@ package interview.ByteDance._2019;
  * 我现在整个人红红火火恍恍惚惚的......
  * <p>
  * 请听题：请实现大锤的自动校对程序
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/6/6
  */
 public class SmartEditor {

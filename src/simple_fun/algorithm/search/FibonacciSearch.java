@@ -7,7 +7,7 @@ import java.util.Arrays;
  *
  * mid = low + F(k-1)-1
  *
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2019/8/30 22:13
  */
 public class FibonacciSearch {

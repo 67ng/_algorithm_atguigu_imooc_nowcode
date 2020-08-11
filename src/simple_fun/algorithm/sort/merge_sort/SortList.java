@@ -2,7 +2,7 @@ package simple_fun.algorithm.sort.merge_sort;
 
 /**
  * @Description: 对链表进行归并排序
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/5/24
  */
 public class SortList {

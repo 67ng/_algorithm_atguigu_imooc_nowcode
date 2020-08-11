@@ -4,7 +4,7 @@ import java.util.Stack;
 
 /**
  * @Description: 栈实现队列
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/2/23
  */
 public class Stacks2Queue {

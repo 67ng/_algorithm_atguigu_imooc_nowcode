@@ -2,7 +2,7 @@ package simple_fun.algorithm.search;
 
 /**
  * @Description: 线性查找
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2019/8/30 22:13
  */
 public class SeqSearch {

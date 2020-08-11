@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * @Description: 联通分量
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/3/6
  */
 public class ConnectedComponent {

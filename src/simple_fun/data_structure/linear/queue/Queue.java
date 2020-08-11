@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.queue;
 
 /**
  * @Description:
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/2/23
  */
 public interface Queue<E> {

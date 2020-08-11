@@ -2,7 +2,7 @@ package simple_fun.algorithm.sort;
 
 /**
  * @Description: 希尔排序
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/2/19
  */
 public class ShellSort {

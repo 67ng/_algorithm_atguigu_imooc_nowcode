@@ -6,7 +6,7 @@ package simple_fun.algorithm.DP.knapsack.perfect_snapsack;
  * N件物品，容量为W的背包。第i件物品的重量为Wi，价值为Vi，每件物品有无数个。求背包可装物品的最大价值。
  *
  *
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/4/6
  */
 public class Soluton {

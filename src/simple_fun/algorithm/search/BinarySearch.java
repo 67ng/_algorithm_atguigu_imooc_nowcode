@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @Description: 二分查找必须的数组必须是有序的，时间复杂度O(log N)
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2019/8/30 22:12
  */
 public class BinarySearch {

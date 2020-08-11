@@ -2,7 +2,7 @@ package simple_fun.algorithm.graph.minimum_tree_spanning;
 
 /**
  * @Description:
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/3/12
  */
 

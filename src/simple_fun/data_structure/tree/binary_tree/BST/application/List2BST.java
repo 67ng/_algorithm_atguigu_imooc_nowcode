@@ -2,7 +2,7 @@ package simple_fun.data_structure.tree.binary_tree.BST.application;
 
 /**
  * @Description: 给定链表，生成平衡BST
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/3/27
  */
 public class List2BST {

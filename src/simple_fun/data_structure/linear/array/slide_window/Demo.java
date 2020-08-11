@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.array.slide_window;
 
 /**
  * @Description: 滑动窗口的标准模板
- * @Author: Pythagodzilla
+ * @Author: caffebaby
  * @Date: 2020/6/28
  */
 

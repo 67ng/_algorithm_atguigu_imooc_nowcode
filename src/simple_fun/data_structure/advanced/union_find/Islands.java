@@ -3,7 +3,7 @@ package simple_fun.data_structure.advanced.union_find;
 /**
  * Description:岛问题
  *
- * @author: 67ng
+ * @author: caffebaby
  * @date: 2018/10/19 10:54
  */
       /* 一个矩阵中只有0和1两种值，每个位置都可以和自己的上、下、左、右

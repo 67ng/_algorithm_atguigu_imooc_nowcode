@@ -2,7 +2,7 @@ package simple_fun.data_structure.tree.binary_tree.AVL;
 
 /**
  * @Description: 判断一个二叉树是否是平衡二叉树
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/3/24
  */
 public class IsAVL {

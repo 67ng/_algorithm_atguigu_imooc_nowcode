@@ -11,7 +11,7 @@ import java.util.Stack;
  * 2.Fleury算法，有多条边选择的时候，不走桥，类似贪心算法（注意：每走一条边删除该边再判断接下的边是否是桥），时间复杂度O（E^2）
  * 3.Hierholzer算法，核心思想：通过构造一系列相连的环构造出欧拉回路，时间复杂度O（V+E）
  *
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/3/8
  */
 public class GetEulerLoop {

@@ -15,7 +15,7 @@ import java.util.*;
  * <p>
  * 思路：哈希表 + 链表 + 优先队列（经典多路归并问题）
  * @linked: https://leetcode-cn.com/problems/design-twitter/solution/ha-xi-biao-lian-biao-you-xian-dui-lie-java-by-liwe/
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/5/26
  */
 public class Twitter {

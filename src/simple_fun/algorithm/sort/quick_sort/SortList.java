@@ -5,7 +5,7 @@ package simple_fun.algorithm.sort.quick_sort;
  *
  * 注：链表的快排是稳定的
  *
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/5/24
  */
 public class SortList {

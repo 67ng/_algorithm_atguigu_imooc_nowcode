@@ -8,7 +8,7 @@ import java.util.TreeMap;
 /**
  * Description:带虚拟节点的一致哈希
  *
- * @author: 67ng
+ * @author: caffebaby
  * @date: 2018/10/18 17:17
  */
 public class ConsistentHashingWithVirtualNode {

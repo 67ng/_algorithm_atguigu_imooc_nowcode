@@ -12,7 +12,7 @@ import java.util.Arrays;
  * 2、每个人至少得到一个奖品；
  * <p>
  * 问最少应该准备多少个奖品。
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/6/6
  */
 public class PrizeDistribution {

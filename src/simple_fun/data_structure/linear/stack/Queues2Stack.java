@@ -5,7 +5,7 @@ import java.util.Queue;
 
 /**
  * @Description: 队列实现栈
- * @Author: 67ng
+ * @Author: caffebaby
  * @Date: 2020/2/23
  */
 public class Queues2Stack {
