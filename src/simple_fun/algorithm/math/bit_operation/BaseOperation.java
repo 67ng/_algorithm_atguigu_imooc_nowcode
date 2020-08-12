@@ -2,7 +2,7 @@ package simple_fun.algorithm.math.bit_operation;
 
 /**
  * @Description: 位运算的常用基本操作
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/6/11
  */
 public class BaseOperation {

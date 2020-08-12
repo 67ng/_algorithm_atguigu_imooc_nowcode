@@ -3,7 +3,7 @@ package simple_fun.data_structure.tree.binary_tree.traversal;
 /**
  * Description:在二叉树中找到一个节点的后继节点（前驱节点类似可找）
  *
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/16 20:23
  */
         /*该结构比普通二叉树节点结构多了一个指向父节点的parent指针。假

@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * Description:二叉树的序列化和反序列化
  *
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/16 20:39
  */
 public class SerializeAndReconstructTree {

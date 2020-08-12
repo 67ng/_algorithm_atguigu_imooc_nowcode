@@ -14,7 +14,7 @@ import java.util.Iterator;
  * 并且编码相对简单许多，跳跃表目前是Redis中用于存储有序集合的底层数据结构，
  * 另外可以存储有序集的数据结构是字典，Redis中还有一种底层数据结构intset可以用来存储有序整数集。
  *
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/31 15:52
  */
 public class SkipListDemo {

@@ -4,7 +4,7 @@ import simple_fun.algorithm.sort.Utils;
 
 /**
  * @Description: 随机快排
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/19
  */
 public class QuickSort {

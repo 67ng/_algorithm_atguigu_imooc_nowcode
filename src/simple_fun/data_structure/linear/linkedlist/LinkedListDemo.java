@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.linkedlist;
 
 /**
  * @Description: 链表的底层实现
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/23
  */
 public class LinkedListDemo<E> {

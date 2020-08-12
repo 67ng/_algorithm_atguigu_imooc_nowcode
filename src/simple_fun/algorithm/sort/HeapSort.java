@@ -4,7 +4,7 @@ import static simple_fun.algorithm.sort.Utils.swap;
 
 /**
  * @Description: 堆排序
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/19
  */
 public class HeapSort {

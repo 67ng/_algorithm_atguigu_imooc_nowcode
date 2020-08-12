@@ -10,7 +10,7 @@ import java.util.Queue;
 
 /**
  * @Description: Prim的改进，时间复杂度O（ElogE）
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/3/12
  */
 public class PrimOptimized {

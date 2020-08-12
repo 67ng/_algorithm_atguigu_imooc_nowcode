@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 /**
  * @Description: 线性动态规划的问题汇总
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/4/11
  */
 public class Solution {

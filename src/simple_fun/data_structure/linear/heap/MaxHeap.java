@@ -4,7 +4,7 @@ import simple_fun.data_structure.linear.array.DynamicArray;
 
 /**
  * @Description: 大根堆
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/23
  */
 public class MaxHeap<E extends Comparable<E>> {

@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.queue;
 
 /**
  * @Description: 循环队列
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/23
  */
 public class LoopQueue<E> implements Queue<E> {

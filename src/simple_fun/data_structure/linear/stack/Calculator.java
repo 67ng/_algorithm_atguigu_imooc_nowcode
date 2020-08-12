@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.stack;
 
 /**
  * @Description: 简单计算器的实现原理（简单加减乘除）
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2019/8/17 20:30
  */
 public class Calculator {

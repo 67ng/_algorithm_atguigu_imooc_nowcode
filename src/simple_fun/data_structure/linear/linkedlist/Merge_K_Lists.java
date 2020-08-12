@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 /**
  * @Description: 合并 k 个有序链表
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/5/27
  */
 public class Merge_K_Lists {

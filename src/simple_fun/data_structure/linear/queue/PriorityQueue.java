@@ -3,7 +3,7 @@ package simple_fun.data_structure.linear.queue;
 import simple_fun.data_structure.linear.heap.*;
 /**
  * @Description: 基于大根堆实现优先队列
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/23
  */
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {

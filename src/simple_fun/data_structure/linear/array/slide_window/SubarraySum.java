@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  * @Description: 给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/5/22
  */
 public class SubarraySum {

@@ -3,7 +3,7 @@ package simple_fun.algorithm.math.bit_operation;
 /**
  * @Description: 快速幂算法
  * Linked:https://www.acwing.com/blog/content/3109/
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/7/14
  */
 

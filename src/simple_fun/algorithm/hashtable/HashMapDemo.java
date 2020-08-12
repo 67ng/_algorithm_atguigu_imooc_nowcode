@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 /**
  * Description:认识哈希函数和哈希表
  *
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/17 22:48
  */
 public class HashMapDemo {

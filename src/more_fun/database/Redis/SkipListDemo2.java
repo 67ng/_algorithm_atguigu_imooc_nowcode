@@ -14,7 +14,7 @@ import java.util.Random;
   并发程度低，数据量大时，ConcurrentHashMap 存取远大于ConcurrentSkipListMap。
   数据量一定，并发程度高时，ConcurrentSkipListMap比ConcurrentHashMap效率更高。
 
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/31 20:17
  */
 public class SkipListDemo2 {

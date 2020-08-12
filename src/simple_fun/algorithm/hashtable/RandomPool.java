@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Description:设计RandomPool结构
  *
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/17 23:26
  */
        /*【题目】 设计一种结构，在该结构中有如下三个功能：

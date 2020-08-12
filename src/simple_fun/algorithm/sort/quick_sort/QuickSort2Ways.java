@@ -4,7 +4,7 @@ import simple_fun.algorithm.sort.Utils;
 
 /**
  * @Description: 双路快速排序
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/19
  */
 

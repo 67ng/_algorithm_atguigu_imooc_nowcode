@@ -4,7 +4,7 @@ package simple_fun.data_structure.tree.binary_tree.traversal;
  * Description:morris遍历
  * 时间复杂度O(N),空间复杂度O(1)
  *
- * @author: caffebaby
+ * @author: matreeix
  * @date: 2018/10/29 16:12
  */
 public class MorrisTraversal {

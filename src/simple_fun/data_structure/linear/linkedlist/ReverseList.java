@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.linkedlist;
 
 /**
  * @Description: 反转链表
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/23
  */
 public class ReverseList {

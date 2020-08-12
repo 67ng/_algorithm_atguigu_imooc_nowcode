@@ -8,7 +8,7 @@ package simple_fun.algorithm.search;
  * 注意：1.对于数据量较大，且关键字的分布比较均匀，采用插值查找效率较高
  * 2. 关键字分布不均匀时，该方法不一定比二分查找高效
  *
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2019/8/30 22:13
  */
 public class InsertValueSearch {

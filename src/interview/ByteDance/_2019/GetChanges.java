@@ -6,7 +6,7 @@ package interview.ByteDance._2019;
  * Z国的货币系统包含面值1元、4元、16元、64元共计四种硬币，以及面值1024元的纸币。
  * <p>
  * 现在小Y使用1024元的纸币购买了一件价值为N的商品，请问最少他会收到多少硬币。
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/6/6
  */
 public class GetChanges {

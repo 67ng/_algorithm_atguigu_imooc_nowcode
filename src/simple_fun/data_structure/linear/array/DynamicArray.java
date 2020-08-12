@@ -2,7 +2,7 @@ package simple_fun.data_structure.linear.array;
 
 /**
  * @Description: 动态数组，ArrayList的底层实现
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/2/23
  */
 public class DynamicArray<E>  {

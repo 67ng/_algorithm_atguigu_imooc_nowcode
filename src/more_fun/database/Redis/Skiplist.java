@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * @Description: 设计跳表
  * 平均时间复杂度为O（log（n）），空间复杂度为O（n）。
- * @Author: caffebaby
+ * @Author: matreeix
  * @Date: 2020/1/10
  */
 public class Skiplist {
