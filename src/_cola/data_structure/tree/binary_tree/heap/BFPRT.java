@@ -1,4 +1,4 @@
-package _cola.data_structure.linear.heap;
+package _cola.data_structure.tree.binary_tree.heap;
 
 /**
  * Description:求最大(小)的第K个数

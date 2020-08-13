@@ -1,6 +1,6 @@
 package _cola.data_structure.linear.queue;
 
-import _cola.data_structure.linear.heap.*;
+import _cola.data_structure.tree.binary_tree.heap.*;
 /**
  * @Description: 基于大根堆实现优先队列
  * @Author: matreeix

@@ -1,4 +1,4 @@
-package _cola.data_structure.linear.heap;
+package _cola.data_structure.tree.binary_tree.heap;
 
 import _cola.data_structure.linear.array.DynamicArray;
 
