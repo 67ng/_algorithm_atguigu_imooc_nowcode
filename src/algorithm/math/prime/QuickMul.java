@@ -1,4 +1,4 @@
-package algorithm.math;
+package algorithm.math.prime;
 
 /**
  * @Description: 快速幂算法
