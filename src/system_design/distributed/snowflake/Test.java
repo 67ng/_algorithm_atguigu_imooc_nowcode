@@ -1,4 +1,4 @@
-package system_design.snowflake;
+package system_design.distributed.snowflake;
 
 import java.util.Arrays;
 import java.util.HashMap;
