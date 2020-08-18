@@ -1,4 +1,4 @@
-package system_design.distributed.snowflake;
+package system_design.snowflake;
 
 //使用snowFlake算法生成分布式唯一id
 //链接：https://blog.csdn.net/qq_36095679/article/details/90677138

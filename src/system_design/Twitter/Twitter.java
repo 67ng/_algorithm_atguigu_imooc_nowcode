@@ -1,4 +1,4 @@
-package system_design.social.Twitter;
+package system_design.Twitter;
 
 import java.util.*;
 

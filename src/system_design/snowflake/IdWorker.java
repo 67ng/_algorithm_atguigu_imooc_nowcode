@@ -1,4 +1,4 @@
-package system_design.distributed.snowflake;
+package system_design.snowflake;
 
 /**
  * Description: Snowflake算法
