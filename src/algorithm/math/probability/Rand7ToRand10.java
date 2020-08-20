@@ -1,4 +1,4 @@
-package algorithm.math.random;
+package algorithm.math.probability;
 
 /**
  * @Description: 用 Rand7() 实现 Rand10()
