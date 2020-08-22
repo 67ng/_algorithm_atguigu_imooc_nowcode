@@ -1,16 +1,14 @@
-package algorithm.DP.knapsack.perfect_snapsack;
+package algorithm.DP.knapsack;
 
 /**
- * @Description: 完全背包
+ * @Description: 完全背包问题
  * <p>
  * N件物品，容量为W的背包。第i件物品的重量为Wi，价值为Vi，每件物品有无数个。求背包可装物品的最大价值。
- *
- *
  * @Author: matreeix
- * @Date: 2020/4/6
+ * @Date: 2020/8/21
  */
-public class Soluton {
 
+public class PerfectSnapsack {
     public int perfect_knapsack(int[] w, int[] v, int C) {
 
         if (w == null || v == null || w.length != v.length)
@@ -34,6 +32,4 @@ public class Soluton {
 
         return memo[C];
     }
-
-
 }
