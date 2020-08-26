@@ -3,33 +3,25 @@ package algorithm.DP.knapsack;
 /**
  * @Description: 完全背包问题
  * <p>
- * N件物品，容量为W的背包。第i件物品的重量为Wi，价值为Vi，每件物品有无数个。求背包可装物品的最大价值。
+ * N件物品，容量为 V 的背包。第i件物品的重量为Wi，价值为Vi，每件物品有无数个。求背包可装物品的最大价值。
  * @Author: matreeix
  * @Date: 2020/8/21
  */
 
 public class PerfectSnapsack {
-    public int perfect_knapsack(int[] w, int[] v, int C) {
-
-        if (w == null || v == null || w.length != v.length)
-            throw new IllegalArgumentException("Invalid w or v");
-
-        if (C < 0)
-            throw new IllegalArgumentException("C must be greater or equal to zero.");
+    public int perfect_knapsack(int[] w, int[] v, int V) {
 
         int n = w.length;
-        if (n == 0 || C == 0)
-            return 0;
 
-        int[] memo = new int[C + 1];//定义容量为状态转移
+        int[] f = new int[V + 1];//定义容量为状态转移
 
-        for (int j = 0; j <= C; j++)
-            memo[j] = (j >= w[0] ? v[0] : 0);
+        for (int j = 0; j <= V; j++)
+            f[j] = (j >= w[0] ? v[0] : 0);
 
         for (int i = 1; i < n; i++)
-            for (int j = w[i]; j <= C; j++)//01背包是逆序，完全背包是顺序
-                memo[j] = Math.max(memo[j], v[i] + memo[j - w[i]]);
+            for (int j = w[i]; j <= V; j++)//01背包是逆序，完全背包是顺序
+                f[j] = Math.max(f[j], v[i] + f[j - w[i]]);
 
-        return memo[C];
+        return f[V];
     }
 }
