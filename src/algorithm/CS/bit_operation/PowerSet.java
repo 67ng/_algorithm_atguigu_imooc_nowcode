@@ -1,4 +1,4 @@
-package algorithm.bit_operation;
+package algorithm.CS.bit_operation;
 
 import java.util.ArrayList;
 import java.util.List;

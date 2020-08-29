@@ -1,4 +1,4 @@
-package algorithm.bit_operation;
+package algorithm.CS.bit_operation;
 
 /**
  * @Description: 汉明重量(计算整数二进制形式中1的个数)
