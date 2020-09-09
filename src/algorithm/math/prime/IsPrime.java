@@ -7,6 +7,14 @@ package algorithm.math.prime;
  */
 
 public class IsPrime {
+    //试除法
+    public static boolean isPrime(int x) {
+        if (x < 2) return false;
+        for (int i = 2; i <= x / i; i++)
+            if (x % i == 0)
+                return false;
+        return true;
+    }
 
     //用整除sqr(n)前的整数判断，可以用dp优化
     private static boolean isPrime(long number) {
