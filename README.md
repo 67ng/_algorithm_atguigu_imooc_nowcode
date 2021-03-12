@@ -61,7 +61,7 @@
 
     - 自平衡二叉查找树
 
-      > AVL树、红黑树
+      > AVL树、红黑树([AVL树和红黑树的性能比较](https://zhuanlan.zhihu.com/p/93369069))
 
     - 最优二叉树（huffman树）
 
