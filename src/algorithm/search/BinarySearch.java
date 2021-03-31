@@ -127,4 +127,35 @@ public class BinarySearch {
             return resIndexlist;
         }
     }
+
+    /**
+     * 注：上面查找区间的方法，在极端条件下会退化成 O(n)
+     * 下面的方法是在O(log n)下，可以得到目标值的起始索引和终止索引
+     * */
+    public static int[] searchRange(int[] nums, int target) {
+        return new int[]{
+                find(nums, target, true),
+                find(nums, target, false),
+        };
+    }
+
+    //O（log n）
+    private static int find(int[] nums, int target, boolean isMin) {
+        int l = 0;
+        int r = nums.length - 1;
+        int keyIndex = -1;
+        while (l <= r) {
+            int middle = l + (r - l) / 2;
+            if (target > nums[middle]) {
+                l = middle + 1;
+            } else if (target < nums[middle]) {
+                r = middle - 1;
+            } else {
+                keyIndex = middle;
+                if (isMin) r = middle - 1;
+                else l = middle + 1;
+            }
+        }
+        return keyIndex;
+    }
 }
