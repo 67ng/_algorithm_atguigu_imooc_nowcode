@@ -48,6 +48,10 @@ public class BaseOperation {
     }
 
     //判断是否是2的正整数次幂
+    /**
+     * Brian Kernighan 算法:
+     * 每次对 num 和 num-1 之间进行按位与运算后，num 中最右边的 1 会被抹去变成 0。
+     * */
     public static boolean power2(int n) {
         return (n & (n - 1)) == 0;
     }
