@@ -14,7 +14,7 @@ public class QuickMul {
         return res[0][0];
     }
 
-    //矩阵的n次方，快速幂
+    //矩阵的n次方，快速幂，O(log n)
     public int[][] pow(int[][] a, int n) {
         int[][] ret = {{1, 0}, {0, 1}};
         while (n > 0) {
@@ -27,7 +27,7 @@ public class QuickMul {
         return ret;
     }
 
-    //矩阵乘法
+    //矩阵乘法,O(1)
     public int[][] multiply(int[][] a, int[][] b) {
         int[][] c = new int[2][2];
         for (int i = 0; i < 2; i++) {
@@ -37,4 +37,10 @@ public class QuickMul {
         }
         return c;
     }
+
+    /**
+     * 更多矩阵快速幂的应用参考：
+     * https://www.acwing.com/blog/content/577/
+     * https://www.acwing.com/blog/content/2311/
+     * */
 }
