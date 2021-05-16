@@ -271,7 +271,7 @@
 
   - 最短路径算法
 
-    > Dijkstra 算法、 Bellman-Ford 算法、Floyd 算法
+    > Dijkstra 算法、 Bellman-Ford 算法、Floyd 算法、A*算法
 
   - 有向图
 
