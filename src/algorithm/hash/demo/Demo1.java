@@ -1,4 +1,4 @@
-package algorithm.hashtable.demo;
+package algorithm.hash.demo;
 
 import java.io.BufferedReader;
 import java.io.IOException;

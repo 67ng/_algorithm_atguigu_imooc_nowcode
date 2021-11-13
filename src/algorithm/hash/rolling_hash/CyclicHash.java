@@ -1,4 +1,4 @@
-package algorithm.hashtable.rolling_hash;
+package algorithm.hash.rolling_hash;
 
 public class CyclicHash {
 

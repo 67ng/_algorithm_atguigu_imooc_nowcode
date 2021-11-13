@@ -1,10 +1,10 @@
-package algorithm.hashtable;
+package algorithm.hash.hashtable;
 
 import java.util.*;
 import java.util.Map.Entry;
 
 /**
- * Description:认识哈希函数和哈希表
+ * Description: HashMap的API使用
  *
  * @author: matreeix
  * @date: 2018/10/17 22:48
@@ -95,13 +95,10 @@ public class HashMapDemo {
         }
         System.out.println("=========================");
 
-        /**HashMap 类映射不保证顺序；某些映射可明确保证其顺序:TreeMap类
-
-         *在遍历Map过程中,不能用map.put(key,newVal),map.remove(key)来修改和删除元素， 会引发并发修改异常,可以通过迭代器的remove()： 
-
+        /**HashMap 类映射不保证顺序；某些映射可明确保证其顺序:TreeMap类
+         *在遍历Map过程中,不能用map.put(key,newVal),map.remove(key)来修改和删除元素， 会引发并发修改异常,可以通过迭代器的remove()：
          *从迭代器指向的collection中移除当前迭代元素
-
-         *来达到删除访问中的元素的目的。  
+         *来达到删除访问中的元素的目的。
 
          **/
         Map<Integer, String> map2 = new HashMap<>();
@@ -115,12 +112,12 @@ public class HashMapDemo {
             int key = entry.getKey();
             if (key % 2 == 1) {
                 System.out.println("delete this: " + key + " = " + key);
-//                  map.put(key, "奇数"); //这样写会报异常  
+//                  map.put(key, "奇数"); //这样写会报异常
 //                  map.remove(key); //这样写会报异常
-                it.remove(); //正确  
+                it.remove(); //正确
             }
         }
-        //遍历最终的map。  
+        //遍历最终的map。
         System.out.println("-------\n\t最终的map的元素遍历：");
         for (Entry<Integer, String> entry : map2.entrySet()) {
             int k = entry.getKey();

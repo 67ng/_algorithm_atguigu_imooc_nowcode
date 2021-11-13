@@ -1,4 +1,4 @@
-package algorithm.hashtable;
+package algorithm.hash;
 
 import java.util.SortedMap;
 import java.util.TreeMap;

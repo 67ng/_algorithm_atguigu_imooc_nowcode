@@ -1,4 +1,4 @@
-package algorithm.hashtable;
+package algorithm.hash;
 
 /**
  * Hash算法大全<br>
