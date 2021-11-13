@@ -1,5 +1,6 @@
 package algorithm.hash.hashtable;
 
+import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
@@ -9,29 +10,50 @@ import java.util.TreeMap;
  */
 
 public class TreeMapDemo {
+    private static TreeMap<Integer, String> treeMap;
+
+    public TreeMapDemo() {
+        treeMap = new TreeMap<>();
+        treeMap.put(2, "two");
+        treeMap.put(1, "one");
+        treeMap.put(3, "three");
+        treeMap.put(6, "six");
+        treeMap.put(5, "five");
+    }
+
+    // floorKey <= key
+    private static Integer floorKey(int key) {
+        if (treeMap.firstKey() > key) return null;
+        return treeMap.floorKey(key);
+    }
+
+    // lowerKey < key
+    private static Integer lowerKey(int key) {
+        if (treeMap.firstKey() >= key) return null;
+        return treeMap.lowerKey(key);
+    }
+
+    // ceilingKey >= key
+    private static Integer ceilingKey(int key) {
+        if (treeMap.lastKey() < key) return null;
+        return treeMap.ceilingKey(key);
+    }
+
+    // higherKey > key
+    private static Integer higherKey(int key) {
+        if (treeMap.lastKey() <= key) return null;
+        return treeMap.higherKey(key);
+    }
+
+    // true 包含边界
+    private static Map<Integer, String> subMap(int l, int r) {
+        return treeMap.subMap(l, true, r, false);
+    }
 
     public static void main(String[] args) {
-        // creating maps
-        TreeMap<Integer, String> treemap = new TreeMap<Integer, String>();
-        NavigableMap<Integer, String> treemapincl = new TreeMap<Integer, String>();
-
-        // populating tree map
-        treemap.put(2, "two");
-        treemap.put(1, "one");
-        treemap.put(3, "three");
-        treemap.put(6, "six");
-        treemap.put(5, "five");
-
-        // 获取给定key的上界、下界值(包含key)
-        int floor = treemap.floorKey(4);
-        int ceiling = treemap.ceilingKey(4);
-        System.out.println(floor);
-        System.out.println(ceiling);
-
-        System.out.println("Getting a portion of the map");
-        // 获取给定范围有序的子Map,true表示包含边界
-        treemapincl = treemap.subMap(1, true, 3, false);
-        System.out.println("Sub map values: " + treemapincl);
+        TreeMapDemo t = new TreeMapDemo();
+        System.out.println(treeMap.floorKey(0));
+        System.out.println(treeMap.lowerKey(1));
     }
 
 
