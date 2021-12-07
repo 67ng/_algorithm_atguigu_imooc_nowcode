@@ -1,4 +1,4 @@
-package algorithm.design.magic_pointer;
+package algorithm.trick.magic_pointer;
 
 /**
  * @Description: 左右指针，通常用于数组相关问题

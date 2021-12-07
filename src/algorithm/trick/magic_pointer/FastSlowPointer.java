@@ -1,4 +1,4 @@
-package algorithm.design.magic_pointer;
+package algorithm.trick.magic_pointer;
 
 /**
  * @Description: 快慢指针，通常应用与链表相关的问题
