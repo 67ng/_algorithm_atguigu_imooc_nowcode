@@ -1,4 +1,4 @@
-package algorithm.CS.recursion;
+package algorithm.base.divide_conquer.recursion;
 
 import java.util.List;
 

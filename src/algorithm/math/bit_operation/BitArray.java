@@ -1,6 +1,4 @@
-package algorithm.CS.bit_operation;
-
-import java.util.BitSet;
+package algorithm.math.bit_operation;
 
 /**
  * @Description: 位数组

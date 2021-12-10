@@ -1,4 +1,4 @@
-package algorithm.CS.bit_operation;
+package algorithm.math.bit_operation;
 
 /**
  * @Description: N皇后的优化

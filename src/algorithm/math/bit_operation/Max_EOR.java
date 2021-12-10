@@ -1,4 +1,4 @@
-package algorithm.CS.bit_operation;
+package algorithm.math.bit_operation;
 
 /**
  * Description:给定一个数组，求子数组的最大异或和。

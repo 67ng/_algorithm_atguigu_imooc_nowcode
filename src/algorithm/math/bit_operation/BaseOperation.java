@@ -1,4 +1,4 @@
-package algorithm.CS.bit_operation;
+package algorithm.math.bit_operation;
 
 /**
  * @Description: 位运算的常用基本操作
