@@ -2,6 +2,9 @@ package data_structure.tree.binary_tree.traversal.application;
 
 /**
  * @Description: 已知中序遍历序列和另外一个序列可以求第三个序列
+ * 1. 前序的第一个是 root，后序的最后一个是 root。
+ * 2. 先确定根节点，然后根据中序遍历，在根左边的为左子树，根右边的为右子树。
+ * 3. 对于每一个子树可以看成一个全新的树，仍然遵循上面的规律。
  * @Date: 2021/12/10
  */
 
