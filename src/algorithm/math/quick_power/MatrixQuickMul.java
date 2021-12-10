@@ -1,4 +1,4 @@
-package algorithm.math.matrix;
+package algorithm.math.quick_power;
 
 /**
  * @Description: 矩阵快速幂求斐波拉契数列
@@ -6,7 +6,7 @@ package algorithm.math.matrix;
  * @Created by: matreeix
  * @Date: 2021/5/9
  */
-public class QuickMul {
+public class MatrixQuickMul {
     public int fib(int n) {
         if (n < 2) return n;
         int[][] q = {{1, 1}, {1, 0}};//求转移矩阵，难点在这！
