@@ -27,6 +27,14 @@ public class QuickMul {
         return res;
     }
 
+    // 递归实现，由于递归的开销,速度比迭代的慢
+    public static int qmi2(int a, int k, int p) {
+        if (k == 0) return 1;
+        int res = qmi2(a, k / 2, p);
+        if (k % 2 == 1) return (res * res * a) % p;
+        else return (res * res) % p;
+    }
+
     /**
      * 快速乘
      * 求解 a * b % p,当a，b值很大时候，a*b容易溢出
@@ -48,7 +56,7 @@ public class QuickMul {
     public static void main(String[] args) {
         int a = 3, p = 7;
         for (int k = 0; k < 20; k++)
-            if (qmi(a, k, p) != (int) Math.pow(a, k) % p)
+            if (qmi2(a, k, p) != (int) Math.pow(a, k) % p)
                 System.out.println("Thers is something wrong!");
         System.out.println("good!");
     }
