@@ -1,4 +1,4 @@
-package algorithm.base.enumeration.tabulation;
+package algorithm.trick.tabulation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
