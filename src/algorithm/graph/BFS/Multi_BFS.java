@@ -1,4 +1,4 @@
-package algorithm.graph;
+package algorithm.graph.BFS;
 
 import java.util.LinkedList;
 import java.util.Queue;

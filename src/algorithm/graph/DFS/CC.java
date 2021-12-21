@@ -1,4 +1,6 @@
-package algorithm.graph;
+package algorithm.graph.DFS;
+
+import algorithm.graph.WeightedGraph;
 
 import java.util.ArrayList;
 

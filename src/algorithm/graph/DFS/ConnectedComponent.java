@@ -1,4 +1,6 @@
-package algorithm.graph;
+package algorithm.graph.DFS;
+
+import algorithm.graph.Graph;
 
 import java.util.ArrayList;
 

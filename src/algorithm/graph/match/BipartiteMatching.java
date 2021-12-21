@@ -1,7 +1,7 @@
 package algorithm.graph.match;
 
 
-import algorithm.graph.BipartitionDetection;
+import BipartitionDetection;
 import algorithm.graph.Graph;
 import algorithm.graph.WeightedGraph;
 import algorithm.graph.network_flow.MaxFlow;

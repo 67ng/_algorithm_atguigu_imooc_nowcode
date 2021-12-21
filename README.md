@@ -385,7 +385,7 @@
 
   - 广度优先遍历
 
-    > 无权图最短路径、多源BFS、BFS和DFS联系、floodfill算法
+    > 无权图最短路径、多源BFS、BFS和DFS联系、floodfill算法、~~双端队列(0-1)BFS~~
 
   - 哈密尔顿路径和欧拉路径
 
@@ -397,7 +397,7 @@
 
   - 最短路径算法
 
-    > Dijkstra 算法、 Bellman-Ford 算法、Floyd 算法、A*算法
+    > Dijkstra 算法、 Bellman-Ford 算法、Floyd 算法、A*算法、~~Johnson 全源最短路径算法~~
 
   - 有向图
 

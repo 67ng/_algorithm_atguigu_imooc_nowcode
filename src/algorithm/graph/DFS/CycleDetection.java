@@ -1,4 +1,6 @@
-package algorithm.graph;
+package algorithm.graph.DFS;
+
+import algorithm.graph.Graph;
 
 /**
  * 无向图的环检测

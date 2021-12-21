@@ -1,4 +1,6 @@
-package algorithm.graph;
+package algorithm.graph.BFS;
+
+import algorithm.graph.Graph;
 
 import java.util.ArrayList;
 import java.util.Collections;
