@@ -1,6 +1,7 @@
 package algorithm.graph.match;
 
-import BipartitionDetection;
+
+import algorithm.graph.DFS.BipartitionDetection;
 import algorithm.graph.Graph;
 
 import java.util.Arrays;

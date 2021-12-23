@@ -1,6 +1,8 @@
 package algorithm.graph.hamilton_euler;
 
 import algorithm.graph.*;
+import algorithm.graph.DFS.ConnectedComponent;
+
 /**
  *
  * 欧拉回路的充分必要条件每个顶点的度数都是偶数

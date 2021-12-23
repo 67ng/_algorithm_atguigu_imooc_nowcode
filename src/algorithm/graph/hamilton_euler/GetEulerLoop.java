@@ -1,6 +1,7 @@
 package algorithm.graph.hamilton_euler;
 
 import algorithm.graph.*;
+import algorithm.graph.DFS.ConnectedComponent;
 
 import java.util.ArrayList;
 import java.util.Stack;

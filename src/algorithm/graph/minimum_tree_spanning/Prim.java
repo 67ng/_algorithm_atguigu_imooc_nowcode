@@ -1,6 +1,7 @@
 package algorithm.graph.minimum_tree_spanning;
 
-import CC;
+
+import algorithm.graph.DFS.CC;
 import algorithm.graph.WeightedEdge;
 import algorithm.graph.WeightedGraph;
 

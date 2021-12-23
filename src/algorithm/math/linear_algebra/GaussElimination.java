@@ -1,4 +1,4 @@
-package algorithm.math.matrix;
+package algorithm.math.linear_algebra;
 
 /**
  * @Description: 高斯消元法解决线性方程

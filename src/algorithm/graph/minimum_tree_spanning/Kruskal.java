@@ -7,6 +7,8 @@ package algorithm.graph.minimum_tree_spanning;
  */
 
 import algorithm.graph.*;
+import algorithm.graph.DFS.CC;
+import data_structure.tree.multiway_tree.union_find.UnionFind6;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +41,7 @@ public class Kruskal {
         Collections.sort(edges);//因为Kruskal算法是从最小权值开始选择，所以要排序
 
         //2.用并查集将连接过的顶点合并，以此来判断新的边是否组成环
-        UF uf = new UF(G.V());//将顶点放入并查集
+        UnionFind6 uf = new UnionFind6(G.V());//将顶点放入并查集
         for (WeightedEdge edge : edges) {
             int v = edge.getV();
             int w = edge.getW();
