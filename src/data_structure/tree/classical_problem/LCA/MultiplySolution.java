@@ -22,7 +22,7 @@ public class MultiplySolution {
 
 
     public static int N = 500005;
-    public static Map<Integer, Set<Integer>> v = new HashMap<>();
+    public static Map<Integer, Set<Integer>> g = new HashMap<>();
 
     public static int[][] fa = new int[N][40];//fa[x][i]指从x节点向上走2^i步的节点
     public static int[] depth = new int[N];
@@ -30,6 +30,10 @@ public class MultiplySolution {
     public MultiplySolution(TreeNode root){
         treeBuildMap(root);
         dfs(root.val, 0);
+    }
+
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return new TreeNode(LCA(p.val, q.val));
     }
 
     // 层序遍历的数组构建图
@@ -40,16 +44,16 @@ public class MultiplySolution {
             cur = arr;
             if (pre != null) {
                 for (int j = 0; j < pre.length; j++) {
-                    v.putIfAbsent(pre[j], new HashSet<>());
+                    g.putIfAbsent(pre[j], new HashSet<>());
                     if (2 * j < cur.length) {
-                        v.get(pre[j]).add(cur[2 * j]);
-                        v.putIfAbsent(cur[2 * j], new HashSet<>());
-                        v.get(cur[2 * j]).add(pre[j]);
+                        g.get(pre[j]).add(cur[2 * j]);
+                        g.putIfAbsent(cur[2 * j], new HashSet<>());
+                        g.get(cur[2 * j]).add(pre[j]);
                     }
                     if (2 * j + 1 < cur.length) {
-                        v.get(pre[j]).add(cur[2 * j + 1]);
-                        v.putIfAbsent(cur[2 * j + 1], new HashSet<>());
-                        v.get(cur[2 * j + 1]).add(pre[j]);
+                        g.get(pre[j]).add(cur[2 * j + 1]);
+                        g.putIfAbsent(cur[2 * j + 1], new HashSet<>());
+                        g.get(cur[2 * j + 1]).add(pre[j]);
                     }
                 }
             }
@@ -62,34 +66,32 @@ public class MultiplySolution {
         if (root == null) return;
         TreeNode l = root.left;
         TreeNode r = root.right;
-        v.putIfAbsent(root.val, new HashSet<>());
+        g.putIfAbsent(root.val, new HashSet<>());
         if (l != null) {
-            v.get(root.val).add(l.val);
-            v.putIfAbsent(l.val, new HashSet<>());
-            v.get(l.val).add(root.val);
+            g.get(root.val).add(l.val);
+            g.putIfAbsent(l.val, new HashSet<>());
+            g.get(l.val).add(root.val);
         }
         if (r != null) {
-            v.get(root.val).add(r.val);
-            v.putIfAbsent(r.val, new HashSet<>());
-            v.get(r.val).add(root.val);
+            g.get(root.val).add(r.val);
+            g.putIfAbsent(r.val, new HashSet<>());
+            g.get(r.val).add(root.val);
         }
         treeBuildMap(l);
         treeBuildMap(r);
     }
 
-    private static void dfs(int x, int y) {//y为x的父亲
-        depth[x] = depth[y] + 1;//x的深度为y+1
-        fa[x][0] = y;//y为x的父亲，即x向上走2^0步
-        for (int i = 1; Math.pow(2, i) <= depth[x]; i++)
-            fa[x][i] = fa[fa[x][i - 1]][i - 1];//x向上走2^i步为x向上走2^(i-1)步之后向上走2^(i-1)步
-        for (int w : v.get(x))
-            if (w != y)
-                dfs(w, x);//向下深搜
+    private static void dfs(int cur, int parent) {
+        depth[cur] = depth[parent] + 1;//cur的深度为parent+1
+        fa[cur][0] = parent;//parent为cur的父亲，即cur向上走2^0步
+        for (int i = 1; Math.pow(2, i) <= depth[cur]; i++)
+            fa[cur][i] = fa[fa[cur][i - 1]][i - 1];//cur向上走2^i步为cur向上走2^(i-1)步之后向上走2^(i-1)步
+        for (int next : g.get(cur))
+            if (next != parent)
+                dfs(next, cur);//向下深搜
     }
 
-    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return new TreeNode(LCA(p.val, q.val));
-    }
+
 
     public static int LCA(int x, int y) {
         if (depth[x] < depth[y])
