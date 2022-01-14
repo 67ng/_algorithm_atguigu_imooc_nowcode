@@ -22,8 +22,8 @@ public class Test {
         int cnt = 0;
         List<List<TreeNode>> query = new ArrayList<>(m);
         for (int i = 0; i < m; i++) {
-            TreeNode p = new TreeNode(r.nextInt(n));
-            TreeNode q = new TreeNode(r.nextInt(n));
+            TreeNode p = new TreeNode(r.nextInt(n)+1);
+            TreeNode q = new TreeNode(r.nextInt(n)+1);
             List<TreeNode> list = new ArrayList<>();
             list.add(q);
             list.add(p);
@@ -50,8 +50,8 @@ public class Test {
         System.out.println("递归算法耗时：" + (t3 - t2) + "ms");
 
 //        for (int i = 0; i < m; i++) {
-//            TreeNode p = new TreeNode(r.nextInt(n));
-//            TreeNode q = new TreeNode(r.nextInt(n));
+//            TreeNode p = new TreeNode(r.nextInt(n)+1);
+//            TreeNode q = new TreeNode(r.nextInt(n)+1);
 ////            int rmqRes = RMQ.lowestCommonAncestor(root, p, q).val;
 //            int mulRes = multiplySolution.LCA(p.val, q.val);
 //            int naiveRes = NaiveSolution.lowestCommonAncestor(root, p, q).val;
