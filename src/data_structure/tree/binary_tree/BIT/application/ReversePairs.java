@@ -1,4 +1,4 @@
-package data_structure.tree.binary_tree.BIT;
+package data_structure.tree.binary_tree.BIT.application;
 
 import java.util.*;
 

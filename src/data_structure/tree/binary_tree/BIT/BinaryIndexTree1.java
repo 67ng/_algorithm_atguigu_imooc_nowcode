@@ -2,25 +2,23 @@ package data_structure.tree.binary_tree.BIT;
 
 /**
  * @Description: 二叉索引树
- * <p>
  * 树状数组或二叉索引树（Binary Indexed Tree），又以其发明者命名为 Fenwick 树。
  * 其初衷是解决数据压缩里的累积频率的计算问题，现多用于高效计算数列的前缀和、区间和。
  * 它可以以 O(logn) 的时间执行下面两种操作：
  * 1、数组任意前缀和的查询
  * 2、单点更新
  *空间复杂度 O(n)。
- * <p>
  *
  * @Author: matreeix
  * @Date: 2020/8/21
  */
 
-public class BinaryIndexTree {
+public class BinaryIndexTree1 {
 
     private int[] tree;
     private int len;
 
-    public BinaryIndexTree(int n) {
+    public BinaryIndexTree1(int n) {
         this.len = n;
         tree = new int[n + 1];
     }
