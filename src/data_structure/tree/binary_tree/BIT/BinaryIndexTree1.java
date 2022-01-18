@@ -15,8 +15,8 @@ package data_structure.tree.binary_tree.BIT;
 
 public class BinaryIndexTree1 {
 
-    private int[] tree;
-    private int len;
+    private final int[] tree;
+    private final int len;
 
     public BinaryIndexTree1(int n) {
         this.len = n;

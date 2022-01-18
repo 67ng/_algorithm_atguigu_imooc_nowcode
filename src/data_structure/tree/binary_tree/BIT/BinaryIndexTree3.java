@@ -11,7 +11,7 @@ package data_structure.tree.binary_tree.BIT;
 
 public class BinaryIndexTree3 {
     public static int maxn = 1000010;
-    public static int a[] = new int[maxn], c[] = new int[maxn], cj[] = new int[maxn];
+    public static int[] a = new int[maxn], c = new int[maxn], cj = new int[maxn];
     public static int n, m;
     public static int op, x, y, k;
 

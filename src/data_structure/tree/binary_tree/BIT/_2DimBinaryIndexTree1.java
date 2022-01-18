@@ -11,7 +11,9 @@ package data_structure.tree.binary_tree.BIT;
 
 public class _2DimBinaryIndexTree1 {
     public static int N = 5000;
-    public static long n, m, sum[][] = new long[N][N];
+    public static long n;
+    public static long m;
+    public static long[][] sum = new long[N][N];
 
     public static long lowbit(long x) {
         return x & -x;

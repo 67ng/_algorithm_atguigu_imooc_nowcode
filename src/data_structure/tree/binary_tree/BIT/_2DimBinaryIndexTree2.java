@@ -1,66 +1,53 @@
 package data_structure.tree.binary_tree.BIT;
 
 /**
- * @Description: 区间修改，区间查询
+ * @Description: 区间修改，单点查询
  * <p>
- * 给定一个大小为 M*N 的零矩阵，直到输入文件结束，你需要进行若干个操作，操作有两类：
- * 1。 a b c d x，表示将左上角为 (a.b)，右下角为 (c,d) 的子矩阵全部加上 x；
- * 2。 a b c d，表示询问左上角为 (a,b)，右下角为 (c,d) 为顶点的子矩阵的所有数字之和。
+ * 给出一个 N*M  的零矩阵 A ，你需要完成如下操作：
+ * 1 a b c d k：表示左上角为 (a,b)，右下角为 (c,d) 的子矩阵内所有数都自增 k；
+ * 2 x y：表示询问元素 A[x][y] 的值；
  * @Date: 2022/1/18
  */
 
 public class _2DimBinaryIndexTree2 {
-    public static int N = 5005;
-    public static long n, m, q;
-    public static long a1[][] = new long[N][N], a2[][] = new long[N][N], a3[][] = new long[N][N], a4[][] = new long[N][N];
+    public static int maxa = 1024 * 4 + 10; //~~pow(2,12)+10
+    public static long n, m;
+    public static long[][] C = new long[maxa][maxa];
 
-    public static long lowbit(long x) {
-        return x & -x;
+    public static long lowbit(long i) {
+        return i & -i;
     }
 
-    public static void add(int x, int y, long z) {
-        for (int i = x; i <= n; i += lowbit(i)) {
-            for (int j = y; j <= m; j += lowbit(j)) {
-                a1[i][j] += z;
-                a2[i][j] += z * x;
-                a3[i][j] += z * y;
-                a4[i][j] += z * x * y;
-            }
-        }
-    }
-
-    public static void range_add(int xa, int ya, int xb, int yb, long z) {
-        add(xa, ya, z);
-        add(xa, yb + 1, -z);
-        add(xb + 1, ya, -z);
-        add(xb + 1, yb + 1, z);
+    public static void add(int a, int b, long k) {
+        for (int i = a; i <= n; i += lowbit(i))
+            for (int j = b; j <= m; j += lowbit(j))
+                C[i][j] += k;
     }
 
     public static long sum(int x, int y) {
-        long res = 0;
-        for (int i = x; i != 0; i -= lowbit(i))
-            for (int j = y; j != 0; j -= lowbit(j))
-                res += (x + 1) * (y + 1) * a1[i][j] - (y + 1) * a2[i][j] - (x + 1) * a3[i][j] + a4[i][j];
-        return res;
-    }
+        long ans = 0;
+        for (int i = x; i > 0; i -= lowbit(i))
+            for (int j = y; j > 0; j -= lowbit(j))
+                ans += C[i][j];
 
-    public static long range_sum(int xa, int ya, int xb, int yb) {
-        return sum(xb, yb) - sum(xb, ya - 1) - sum(xa - 1, yb) + sum(xa - 1, ya - 1);
+        return ans;
     }
-
 //    int main() {
-//        cin >> n >> m;
-//        ll op;
+//        scanf("%lld%lld", &n, &m);
+//        LL op, a, b, c, d, k, x, y;
+//        memset(C, 0, sizeof C);
 //
-//        while (cin >> op) {
+//        while (scanf("%lld", &op) != EOF) {
 //            if (op == 1) {
-//                ll a, b, c, d, e;
-//                cin >> a >> b >> c >> d >> e;
-//                range_add(a, b, c, d, e);
-//            } else {
-//                ll a, b, c, d;
-//                cin >> a >> b >> c >> d;
-//                cout << range_sum(a, b, c, d) << endl;
+//                scanf("%lld%lld%lld%lld%lld", &a, &b, &c, &d, &k);
+//                add(a, b, k);
+//                add(c + 1, d + 1, k);
+//                add(c + 1, b, -k);
+//                add(a, d + 1, -k);
+//                //??????????add(x,k),add(y+1,-k);
+//            } else if (op == 2) {
+//                scanf("%lld%lld", &x, &y);
+//                printf("%lld\n", sum(x, y)); //?????????
 //            }
 //        }
 //    }
