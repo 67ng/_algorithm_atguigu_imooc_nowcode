@@ -5,7 +5,7 @@ package algorithm.DP.section_dp;
  * @Description: 给定一个字符串 S，找出 S 中不同的非空回文子序列个数，并返回该数字与 10^9 + 7 的模。
  * 通过从 S 中删除 0 个或多个字符来获得子字符序列。
  * 如果一个字符序列与它反转后的字符序列一致，那么它是回文字符序列。
- * 如果对于某个  i，A_i != B_i，那么 A_1, A_2, ... 和 B_1, B_2, ... 这两个字符序列是不同的。
+ * 如果对于某个  i，A_i != B_i，那么 A_1, A_2, ... 和 B_1, B_2, ... 这两个字符序列是不同的。
  * @Linked: https://leetcode-cn.com/problems/count-different-palindromic-subsequences/
  */
 

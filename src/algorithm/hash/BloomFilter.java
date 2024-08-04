@@ -22,17 +22,17 @@ import java.util.BitSet;
         先建立一个16亿二进制常量，然后将这16亿个二进制位全部置0。对于每个字符串，
         用8个不同的随机产生器（F1,F2,.....,F8）产生8个信息指纹(f1,f2,....,f8).
         再用一个随机数产生器G把这八个信息指纹映射到1到16亿中的8个自然数g1,g2,...,g8。
-        现在把这8个位置的二进制位全部变为1。这样一个布隆过滤器就建好了 
+        现在把这8个位置的二进制位全部变为1。这样一个布隆过滤器就建好了 
              */
 
 public class BloomFilter {
-    private static final int DEFAULT_SIZE = 2 << 24;//布隆过滤器的比特长度    
-    private static final int[] seeds = {3, 5, 7, 11, 13, 31, 37, 61};//这里要选取质数，能很好的降低错误率    
+    private static final int DEFAULT_SIZE = 2 << 24;//布隆过滤器的比特长度    
+    private static final int[] seeds = {3, 5, 7, 11, 13, 31, 37, 61};//这里要选取质数，能很好的降低错误率    
     private static BitSet bits = new BitSet(DEFAULT_SIZE);
     private static SimpleHash[] func = new SimpleHash[seeds.length];
 
     public static void addValue(String value) {
-        for (SimpleHash f : func)//将字符串value哈希为8个或多个整数，然后在这些整数的bit上变为1    
+        for (SimpleHash f : func)//将字符串value哈希为8个或多个整数，然后在这些整数的bit上变为1    
             bits.set(f.hash(value), true);
     }
 
@@ -43,7 +43,7 @@ public class BloomFilter {
     public static boolean contains(String value) {
         if (value == null) return false;
         boolean ret = true;
-        for (SimpleHash f : func)//这里其实没必要全部跑完，只要一次ret==false那么就不包含这个字符串    
+        for (SimpleHash f : func)//这里其实没必要全部跑完，只要一次ret==false那么就不包含这个字符串    
             ret = ret && bits.get(f.hash(value));
         return ret;
     }
@@ -58,7 +58,7 @@ public class BloomFilter {
     }
 }
 
-class SimpleHash {//这玩意相当于C++中的结构体    
+class SimpleHash {//这玩意相当于C++中的结构体    
 
     private int cap;
     private int seed;
@@ -68,7 +68,7 @@ class SimpleHash {//这玩意相当于C++中的结构体    
         this.seed = seed;
     }
 
-    public int hash(String value) {//字符串哈希，选取好的哈希函数很重要    
+    public int hash(String value) {//字符串哈希，选取好的哈希函数很重要    
         int result = 0;
         int len = value.length();
         for (int i = 0; i < len; i++) {

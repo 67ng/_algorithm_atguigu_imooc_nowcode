@@ -7,7 +7,7 @@ package algorithm.math.geometry;
  *  * 1.3 <= points.length <= 50.
  *  * 2.不存在重复的点。
  *  * 3.-50 <= points[i][j] <= 50.
- *  * 4.结果误差值在 10^-6 以内都认为是正确答案。
+ *  * 4.结果误差值在 10^-6 以内都认为是正确答案。
  * @Created by: matreeix
  * @Date: 2021/5/4
  */
